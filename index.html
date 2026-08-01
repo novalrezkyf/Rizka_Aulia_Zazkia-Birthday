@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIZKA AULIA ZAZKIA: This Is Your Mounth</title>
+    <!-- Font Premium Google -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-ivory: #fffefb;
+            --pink-fanta: #ff007f;
+            --soft-pink: #ffb7b2;
+            --royal-purple: #8a2be2;
+            --light-blue: #a8dadc;
+            --milk-white: rgba(255, 255, 255, 0.95);
+            --text-main: #2d2d2d;
+        }
+
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-main);
+            background-image: linear-gradient(135deg, rgba(168,218,220,0.25), rgba(255,183,178,0.25)), url('bg.jpg');
+            background-attachment: fixed; background-size: cover; background-position: center;
+            display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow-x: hidden;
+        }
+
+        .falling-flower { position: fixed; top: -10px; pointer-events: none; z-index: 999; animation: fall linear infinite; }
+
+        .container {
+            max-width: 950px; width: 90%; background: var(--milk-white); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            padding: 60px 50px; margin: 50px 0; border-radius: 40px;
+            box-shadow: 0 30px 70px rgba(255, 0, 127, 0.18), 0 15px 40px rgba(138, 43, 226, 0.12), inset 0 0 20px rgba(255,255,255,0.6);
+            border: 2px solid rgba(255, 255, 255, 0.8); text-align: center; transition: all 0.4s ease;
+        }
+
+        .flower-badge {
+            display: inline-block; background: linear-gradient(135deg, rgba(255,183,178,0.5), rgba(168,218,220,0.5));
+            padding: 10px 24px; border-radius: 30px; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase;
+            color: var(--royal-purple); margin-bottom: 30px; font-weight: 700; box-shadow: 0 4px 15px rgba(255, 0, 127, 0.05);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif; font-size: 3.4rem;
+            background: linear-gradient(to right, var(--pink-fanta), var(--royal-purple), var(--pink-fanta));
+            background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text;
+            animation: shineText 4s linear infinite; margin: 0 0 15px 0; letter-spacing: 1px; font-weight: 700;
+        }
+
+        .prakata {
+            font-family: 'Playfair Display', serif; font-style: italic; line-height: 2; font-size: 1.15rem; color: #3a3a3a;
+            margin: 30px 0 45px 0; text-align: justify; background: var(--bg-ivory); padding: 25px 30px;
+            border-radius: 20px; border-left: 6px solid var(--pink-fanta); box-shadow: 0 5px 15px rgba(0,0,0,0.01);
+        }
+
+        audio { display: none; }
+
+        .password-section { background: var(--bg-ivory); padding: 35px 30px; border-radius: 24px; border: 2px solid var(--soft-pink); margin-bottom: 45px; }
+        .password-section h3 { margin: 0 0 20px 0; font-family: 'Playfair Display', serif; color: var(--royal-purple); font-size: 1.4rem; font-weight: 600; }
+
+        input[type="text"] {
+            width: 55%; padding: 16px 24px; margin-bottom: 20px; border: 2px solid var(--light-blue);
+            background-color: #fff; border-radius: 35px; font-family: inherit; text-align: center; font-size: 1.05rem; outline: none; transition: 0.3s ease;
+        }
+        input[type="text"]:focus { border-color: var(--pink-fanta); box-shadow: 0 0 15px rgba(255, 0, 127, 0.2); }
+
+        button {
+            background: linear-gradient(135deg, var(--pink-fanta), var(--royal-purple)); color: white; border: none;
+            padding: 16px 55px; border-radius: 35px; font-weight: 700; font-size: 1rem; cursor: pointer;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 8px 20px rgba(255, 0, 127, 0.25);
+        }
+        button:hover { transform: scale(1.02) translateY(-2px); box-shadow: 0 12px 28px rgba(138, 43, 226, 0.35); }
+
+        .timeline-board { display: flex; flex-direction: column; gap: 45px; margin-top: 30px; text-align: left; }
+
+        .day-card {
+            display: none; background: #fff; padding: 40px; border-radius: 28px; border: 2px solid var(--soft-pink);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.03); animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .day-title { font-family: 'Playfair Display', serif; color: var(--pink-fanta); font-size: 1.6rem; font-weight: 700; margin-top: 0; margin-bottom: 25px; border-bottom: 2px solid var(--light-blue); padding-bottom: 12px; }
+
+        .day-content-wrapper { display: flex; flex-direction: column; gap: 35px; }
+        @media (min-width: 768px) {
+            .day-content-wrapper { flex-direction: row; align-items: flex-start; }
+            .day-media { flex: 1; min-width: 42%; }
+            .day-info { flex: 1.2; }
+        }
+
+        .day-card img, .day-card video { width: 100%; height: auto; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.06); border: 4px solid #fff; }
+
+        .day-text { font-family: 'Playfair Display', serif; font-style: italic; line-height: 2; font-size: 1.1rem; color: #3a3a3a; text-align: justify; margin-bottom: 25px; }
+
+        .clue-box { background: rgba(168, 218, 220, 0.22); padding: 18px 24px; border-radius: 16px; border: 1px dashed var(--royal-purple); margin-bottom: 25px; }
+
+        .rizka-input-section { background: var(--bg-ivory); padding: 25px; border-radius: 20px; border: 1px solid var(--soft-pink); margin-top: 25px; }
+        .rizka-input-section h4 { margin: 0 0 12px 0; font-family: 'Playfair Display', serif; color: var(--royal-purple); font-size: 1.15rem; }
+
+        textarea { width: 94%; height: 95px; padding: 14px; border-radius: 14px; border: 2px solid var(--light-blue); font-family: inherit; resize: none; outline: none; margin-bottom: 15px; font-size: 1rem; }
+        textarea:focus { border-color: var(--pink-fanta); }
+
+        .saved-reply-box {
+            display: none; background: linear-gradient(135deg, #ffffff, #fff2f6); padding: 20px 25px; border-radius: 18px;
+            border-left: 6px solid var(--pink-fanta); font-family: 'Playfair Display', serif; font-style: italic;
+            margin-top: 25px; color: #222; line-height: 1.8; font-size: 1.08rem; box-shadow: 3px 5px 15px rgba(0,0,0,0.02);
+        }
+
+        @keyframes fall { 0% { transform: translateY(-10px) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 100% { transform: translateY(105vh) rotate(360deg); opacity: 0; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes shineText { to { background-position: 200% center; } }
+    </style>
+</head>
+<body>
+
+    <div id="flower-container"></div>
+    <audio id="myAudio" src="lagu1.mp3" autoplay loop></audio>
+
+    <div class="container">
+        <div class="flower-badge">🌸 Logistic of Love</div>
+        <h1>RIZKA AULIA ZAZKIA</h1>
+        <div style="font-size: 0.85rem; letter-spacing: 3px; color: var(--royal-purple); text-transform: uppercase; font-weight: 600;">Sekilas Story Kita Yang Sederhana</div>
+        
+        <p class="prakata">
+            "Selamat datang bulan kelahiran kamu sayangku. Sudah sejak lama aku menanti ketukan waktu ini tiba. Tidak ada kemilau, hingar bingar, hanya ada ketulusan rasa yang kurajut erat dengan segenap hatiku. Menyayangimu adalah ketetapan terbaik, dan memilikimu adalah hal paling membanggakan yang pernah singgah di dalam takdirku."
+        </p>
+
+        <!-- KOORDINASI INPUT UTAMA -->
+        <div class="password-section">
+            <h3>🔑 Input Kode Rahasia Harian</h3>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Masukkan password hadiah fisik hari ini untuk menambah lembar memori baru:</p>
+            <input type="text" id="passInput" placeholder="Ketik kode di sini...">
+            <br>
+            <button onclick="checkPassword()">Buka Catatan Hari Ini</button>
+            <p id="errorMsg" style="color: var(--pink-fanta); font-size: 0.85rem; display: none; margin-top: 12px; font-weight: 600;">Oops! Kode salah atau belum saatnya dibuka. Periksa lagi ya. ❤️</p>
+        </div>
+
+        <!-- TIMELINE PAPAN BERANTAI UTAMA -->
+        <div class="timeline-board">
+
+            <!-- ==================== SLOT HARI KE-1 (CONTOH FORMAT VIDEO) ==================== -->
+            <div id="day1" class="day-card">
+                <div class="day-title">📍 Day 1: Radiasi Cinta di Detik Pertama</div>
+                <div class="day-content-wrapper">
+                    <!-- Media Kiri: Video Hidup -->
+                    <div class="day-media">
+                        <video autoplay loop muted playsinline width="100%" style="border-radius: 20px; box-shadow: 0 8px 25px rgba(255, 0, 127, 0.1); border: 4px solid #fff; pointer-events: none;">
+                            <source src="video1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <!-- Info Kanan: Teks & Balasan (Password Diatur di Script Bawah:) -->
+                    <div class="day-info">
+                        <div class="day-text">
+                            "Selamat datang di hari pertama di bulan Agustus, bulannya manusia paling indah dan paling berharga di hidup aku. ❤️<br><br> Aku selalu percaya kalau semesta itu adil, dan kehadiran kamu di dunia ini adalah pembuktiannya. Kehadiran kamu di hidup aku adalah hadiah paling indah yang pernah aku terima. Kamu itu senyuman di hari-hari aku, pelukan hangat di setiap malamku, dan satu-satunya alasan kenapa duniaku terasa jauh lebih berwarna, tenang, dan penuh kebahagiaan. Di mata aku, kamu selalu jadi hal paling mengagumkan yang gak akan pernah bosan untuk aku syukuri setiap harinya.<br><br> Orang lain mungkin cuma merayakan hari lahirmu tepat di tanggal 17 Agustus nanti. Tapi buat aku, satu hari jelas gak akan pernah cukup untuk merayakan berartinya kamu di hidup aku. Aku mau mendedikasikan seluruh waktu aku dari tanggal 1 sampai 17 Agustus penuh hanya untuk memanjakan kamu dan membuat kamu merasa jadi wanita paling dicintai di dunia ini tanpa ada yang terlewat sedikit pun. Website ini adalah persembahan kecil dari hati aku yang penuh dengan rencana indah buat kamu. Terima kasih ya, sayang, karena sudah lahir ke dunia ini, sudah melangkah bersamaku, dan selalu menjadi bagian paling manis di setiap detak jantungku. I love you so much, Rizka Aulia Zazkia."
+                        </div>
+                        <div class="clue-box">
+                            <b style="color: var(--pink-fanta);">🎬 Behind the Footage:</b> "Video di samping ini sengaja aku pilih karena ini adalah momen favorit aku saat melihat senyuman lepas kamu. Setiap kali aku liat gerakan di video ini, duniaku rasanya ikut berhenti berputar karena fokus ke bahagianya kamu."
+                        </div>
+                        <div id="inputSec_day1" class="rizka-input-section">
+                            <h4>📝 Lembar Balasan di Hari Pertamamu (Day 1)</h4>
+                            <p style="font-size: 0.8rem; color: #666; margin: 0 0 10px 0;">Gimana, hadiah pertama malam ini dan video di atas sukses bikin kamu tersenyum belum? Hahaha. Tulis apa aja yang lagi kamu rasain sekarang di bawah ya, sayang:</p>
+                            <textarea id="text_day1" placeholder="Tumpahkan di sini, bebas..."></textarea><br>
+                            <button onclick="saveRizkaReply('day1')">Kunci & Tempel Catatan</button>
+                        </div>
+                        <div id="replyBox_day1" class="saved-reply-box"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ==================== SLOT HARI KE-2 (CONTOH FORMAT FOTO) ==================== -->
+            <div id="day2" class="day-card">
+                <div class="day-title">📍 Day 2: Indahnya Dunia Sejak Ada Kamu</div>
+                <div class="day-content-wrapper">
+                    <!-- Media Kiri: Foto Utama -->
+                    <div class="day-media">
+                        <img src="foto2.jpg" alt="Memory Day 2">
+                    </div>
+                    <!-- Info Kanan: Teks & Balasan (Password Diatur di Script Bawah: ) -->
+                    <div class="day-info">
+                        <div class="day-text">
+                            ""Terima kasih ya, sayang, karena sudah membuka lembar cerita di hari kedua ini. ❤️<br><br>
+Setiap hari aku selalu merenung dan sadar, kalau hal paling indah yang pernah terjadi di dalam hidup aku adalah momen di mana aku diizinkan untuk memiliki kamu. Di dunia yang kadang terasa rumit dan melelahkan ini, kehadiran kamu adalah satu-satunya fase yang selalu berhasil membuat duniaku terasa jauh lebih tenang, damai, dan penuh warna. Menyayangi kamu itu seperti bernapas; hal paling alami yang dilakukan jantungku tanpa perlu pernah diajari.<br><br>
+Aku benar-benar bersyukur kepada semesta karena telah mengirimkan manusia seindah dan setulus kamu untuk berjalan di sisiku. Kamu bukan cuma pelengkap, tapi kamu adalah pusat dari setiap senyuman, tawa, dan rasa bahagia yang aku punya saat ini. Aku mau kamu selalu ingat, dari tanggal 1 sampai 17 Agustus nanti—bahkan hingga ratusan bulan setelah ini—kamu akan selalu jadi prioritas utamaku, ruang paling nyaman di hidupku, dan manusia paling berharga yang akan selalu aku jaga dengan seluruh cintaku. Website ini akan terus berjalan menemanimu sampai hari lahirmu tiba, jadi bersiaplah untuk terus menjadi wanita yang paling dicintai di dunia ini setiap harinya. I love you more than words can say, Rizka Aulia ZAZKIA."
+"
+                        </div>
+                        <div class="clue-box">
+                            <b style="color: var(--pink-fanta);">📸 Behind the Picture:</b> "Foto di samping menyimpan kenangan manis tentang saat kita... saat aku diberikan kejutan indah yang penuh akan warna dan tidak ternilai harganya... bahagiaaaa seperti layaknya aku pria paling beruntung di duniaaa..."
+                        </div>
+                        <div id="inputSec_day2" class="rizka-input-section">
+                            <h4>📝 Lembar Balasan Jurnal (Day 2)</h4>
+                            <textarea id="text_day2" placeholder="Tumpahkan di sini, bebas..."></textarea><br>
+                            <button onclick="saveRizkaReply('day2')">Kunci & Tempel Catatan</button>
+                        </div>
+                        <div id="replyBox_day2" class="saved-reply-box"></div>
+                    </div>
+                </div>
+            </div>
+
+
+             <!-- ==================== SLOT HARI KE-3 (CONTOH FORMAT FOTO) ==================== -->
+            <div id="day3" class="day-card">
+                <div class="day-title">📍 Day 3: Zat Tuhan Yang Turun Didunia</div>
+                <div class="day-content-wrapper">
+                    <!-- Media Kiri: Foto Utama -->
+                    <div class="day-media">
+                        <img src="foto3.jpg" alt="Memory Day 3">
+                    </div>
+                    <!-- Info Kanan: Teks & Balasan (Password Diatur di Script Bawah: ) -->
+                    <div class="day-info">
+                        <div class="day-text">
+                            ""Selamat datang di hari ketiga di bulan Agustus, bulannya manusia favoritku. ❤️<br><br>
+Aku sengaja memberikan kalender kustom itu hari ini karena aku ingin kamu melihat bagaimana angka 1 sampai 17 Agustus berubah menjadi hari-hari yang paling istimewa. Bagiku, waktu gak lagi dihitung dengan detik atau jam, tapi dihitung dari setiap momen berharga yang aku lewati bersama kamu. Kamu tahu gak? Kamu itu seperti zat utama yang selalu mengalirkan energi positif, kebahagiaan, dan alasan di setiap detak jantungku untuk selalu bersemangat menjalani hari.<br><br>
+Setiap kali aku melihat kalender itu, yang aku lihat bukan cuma deretan tanggal merah atau hari libur, tapi aku melihat rangkaian kejutan yang sudah aku siapkan dengan penuh rasa cinta cuma buat kamu. Aku mau mendedikasikan bulan ini sepenuhnya untuk membuat kamu merasa menjadi wanita yang paling disayangi dan dirayakan di dunia ini. Jurnal ini masih sangat panjang, jadi tetap simpan senyuman manismu itu untuk hari-hari ke depan ya, sayang. I love you to the moon and back, Rizka Aulia ZAZKIA."
+                        </div>
+                        <div class="clue-box">
+                            <b style="color: var(--pink-fanta);">📸 Behind the Picture:</b> "Foto di samping menyimpan kenangan manis tentang saat kita... Saat dimana.. Love Bombing sedang terlaksana... Dunia Seakan tidak ada batasnya bagi kita... tidak ada ruang dan waktu yang gak mampu kita tembusss..."
+                        </div>
+                        <div id="inputSec_day3" class="rizka-input-section">
+                            <h4>📝 Lembar Balasan Jurnal (Day 3)</h4>
+                            <textarea id="text_day2" placeholder="Tumpahkan di sini, bebas..."></textarea><br>
+                            <button onclick="saveRizkaReply('day3')">Kunci & Tempel Catatan</button>
+                        </div>
+                        <div id="replyBox_day3" class="saved-reply-box"></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script>
+        // 1. MANAGER AUDIO AUTOPLAY LOKAL
+        const audio = document.getElementById('myAudio');
+        window.addEventListener('DOMContentLoaded', () => {
+            audio.play().catch(() => {
+                document.addEventListener('click', () => { audio.play(); }, { once: true });
+            });
+        });
+
+        // =========================================================================
+        // 🔑 PUSAT REGISTRASI KATA KUNCI/PASSWORD 17 HARI
+        // =========================================================================
+        // Jika Anda menambah Day 3, cukup tambahkan baris baru di bawah AULIA02:
+        // "KODEBARU03": "day3",
+        const passwordRegistry = {
+            "X7M2PK": "day1",     // Password Hari ke-1 (1 Agu)
+            "4V9BTL": "day2",     // Password Hari ke-2 (2 Agu)
+            "R5K8WN": "day3",     // Password Hari ke-3 (3 Agu)
+            "H2Q9FX": "day4",     // Password Hari ke-4 (4 Agu)
+            "L6P3YJ": "day5",     // Password Hari ke-5 (5 Agu)
+            "B8M4WD": "day6",     // Password Hari ke-6 (6 Agu)
+            "T3K7NZ": "day7",     // Password Hari ke-7 (7 Agu)
+            "G9V2RX": "day8",     // Password Hari ke-8 (8 Agu)
+            "P4L6QC": "day9",     // Password Hari ke-9 (9 Agu)
+            "J7F3KS": "day10",    // Password Hari ke-10 (10 Agu)
+            "W5M9BT": "day11",    // Password Hari ke-11 (11 Agu)
+            "N2Y6VD": "day12",    // Password Hari ke-12 (12 Agu)
+            "K8Q4FX": "day13",    // Password Hari ke-13 (13 Agu)
+            "C3P7RL": "day14",    // Password Hari ke-14 (14 Agu)
+            "H9M2WS": "day15",    // Password Hari ke-15 (15 Agu)
+            "Z5V4KT": "day16",    // Password Hari ke-16 (16 Agu)
+            "L3N7PX": "day17"     // Password Hari ke-17 (17 Agu - Puncak HARI-H
+        };
+        // =========================================================================
+
+        // 3. LOGIKA VERIFIKASI KODE MASUK BERANTAI
+        function checkPassword() {
+            var input = document.getElementById("passInput").value.trim().toUpperCase();
+            var error = document.getElementById("errorMsg");
+
+            if (passwordRegistry[input]) {
+                error.style.display = "none";
+                let targetDayId = passwordRegistry[input];
+                localStorage.setItem(targetDayId, "unlocked");
+                displayUnlockedDays();
+                setTimeout(() => {
+                    document.getElementById(targetDayId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 150);
+                document.getElementById("passInput").value = "";
+            } else {
+                error.style.display = "block";
+            }
+        }
+
+        // 4. LOGIKA PENGUNCI DAN PENYIMPAN MEMORI TULISAN RIZKA
+        function saveRizkaReply(dayId) {
+            const textarea = document.getElementById('text_' + dayId);
+            const replyText = textarea.value.trim();
+            if (replyText === "") return;
+
+            localStorage.setItem('replyData_' + dayId, replyText);
+            renderSavedReplies();
+        }
+
+        function renderSavedReplies() {
+            for (let code in passwordRegistry) {
+                let dayId = passwordRegistry[code];
+                let savedText = localStorage.getItem('replyData_' + dayId);
+                
+                let inputSection = document.getElementById('inputSec_' + dayId);
+                let replyBox = document.getElementById('replyBox_' + dayId);
+
+                if (savedText) {
+                    if(inputSection) inputSection.style.display = "none";
+                    if(replyBox) {
+                        replyBox.style.display = "block";
+                        replyBox.innerHTML = `<b style="color:var(--royal-purple);">📌 Balasan & Uneg-uneg Rizka:</b><br>"${savedText}"`;
+                    }
+                }
+            }
+        }
+
+        function displayUnlockedDays() {
+            for (let code in passwordRegistry) {
+                let dayId = passwordRegistry[code];
+                if (localStorage.getItem(dayId) === "unlocked") {
+                    document.getElementById(dayId).style.display = "block";
+                }
+            }
+            renderSavedReplies();
+        }
+
+        window.onload = function() { displayUnlockedDays(); };
+
+        // 5. ANIMASI HEBOH BUNGA SAKURA GUGUR & KILAU BINTANG BERKILAU
+        const flowerContainer = document.getElementById('flower-container');
+        const flowers = ['🌸', '✨', '💮', '💜', '✨', '🌸'];
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.classList.add('falling-flower');
+            flower.innerText = flowers[Math.floor(Math.random() * flowers.length)];
+            flower.style.left = Math.random() * 100 + 'vw';
+            flower.style.animationDuration = Math.random() * 3 + 4 + 's';
+            flower.style.opacity = Math.random() * 0.8 + 0.2;
+            flower.style.fontSize = Math.random() * 10 + 12 + 'px';
+            flowerContainer.appendChild(flower);
+            setTimeout(() => { flower.remove(); }, 7000);
+        }
+        setInterval(createFlower, 300);
+    </script>
+</body>
+</html>
