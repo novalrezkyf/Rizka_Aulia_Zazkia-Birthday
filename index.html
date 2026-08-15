@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RIZKA AULIA ZAZKIA: This Is Your Mounth</title>
-    <!-- Font Premium Google -->
-    <link href="https://googleapis.com" rel="stylesheet">
-    
+    <title>RIZKA AULIA ZAZKIA: This Is Your Month</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --bg-ivory: #fffefb;
@@ -18,690 +21,2426 @@
             --text-main: #2d2d2d;
         }
 
-        body {
-            margin: 0; padding: 0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: var(--text-main);
-            background-image: linear-gradient(135deg, rgba(168,218,220,0.25), rgba(255,183,178,0.25)), url('bg.jpg');
-            background-attachment: fixed; background-size: cover; background-position: center;
-            display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow-x: hidden;
+        * {
+            box-sizing: border-box;
         }
 
-        .falling-flower { position: fixed; top: -10px; pointer-events: none; z-index: 999; animation: fall linear infinite; }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-main);
+            background-image:
+                linear-gradient(
+                    135deg,
+                    rgba(168,218,220,0.25),
+                    rgba(255,183,178,0.25)
+                ),
+                url('bg.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .falling-flower {
+            position: fixed;
+            top: -10px;
+            pointer-events: none;
+            z-index: 999;
+            animation: fall linear infinite;
+        }
 
         .container {
-            max-width: 950px; width: 90%; background: var(--milk-white); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
-            padding: 60px 50px; margin: 50px 0; border-radius: 40px;
-            box-shadow: 0 30px 70px rgba(255, 0, 127, 0.18), 0 15px 40px rgba(138, 43, 226, 0.12), inset 0 0 20px rgba(255,255,255,0.6);
-            border: 2px solid rgba(255, 255, 255, 0.8); text-align: center; transition: all 0.4s ease;
+            max-width: 950px;
+            width: 90%;
+            background: var(--milk-white);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            padding: 60px 50px;
+            margin: 50px 0;
+            border-radius: 40px;
+            box-shadow:
+                0 30px 70px rgba(255, 0, 127, 0.18),
+                0 15px 40px rgba(138, 43, 226, 0.12),
+                inset 0 0 20px rgba(255,255,255,0.6);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            text-align: center;
+            transition: all 0.4s ease;
         }
 
         .flower-badge {
-            display: inline-block; background: linear-gradient(135deg, rgba(255,183,178,0.5), rgba(168,218,220,0.5));
-            padding: 10px 24px; border-radius: 30px; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase;
-            color: var(--royal-purple); margin-bottom: 30px; font-weight: 700; box-shadow: 0 4px 15px rgba(255, 0, 127, 0.05);
+            display: inline-block;
+            background: linear-gradient(
+                135deg,
+                rgba(255,183,178,0.5),
+                rgba(168,218,220,0.5)
+            );
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--royal-purple);
+            margin-bottom: 30px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(255, 0, 127, 0.05);
         }
 
         h1 {
-            font-family: 'Playfair Display', serif; font-size: 3.4rem;
-            background: linear-gradient(to right, var(--pink-fanta), var(--royal-purple), var(--pink-fanta));
-            background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text;
-            animation: shineText 4s linear infinite; margin: 0 0 15px 0; letter-spacing: 1px; font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.4rem;
+            background: linear-gradient(
+                to right,
+                var(--pink-fanta),
+                var(--royal-purple),
+                var(--pink-fanta)
+            );
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shineText 4s linear infinite;
+            margin: 0 0 15px 0;
+            letter-spacing: 1px;
+            font-weight: 700;
         }
 
         .prakata {
-            font-family: 'Playfair Display', serif; font-style: italic; line-height: 2; font-size: 1.15rem; color: #3a3a3a;
-            margin: 30px 0 45px 0; text-align: justify; background: var(--bg-ivory); padding: 25px 30px;
-            border-radius: 20px; border-left: 6px solid var(--pink-fanta); box-shadow: 0 5px 15px rgba(0,0,0,0.01);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            line-height: 2;
+            font-size: 1.15rem;
+            color: #3a3a3a;
+            margin: 30px 0 45px 0;
+            text-align: justify;
+            background: var(--bg-ivory);
+            padding: 25px 30px;
+            border-radius: 20px;
+            border-left: 6px solid var(--pink-fanta);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.01);
         }
 
-        audio { display: none; }
+        audio {
+            display: none;
+        }
 
-        .password-section { background: var(--bg-ivory); padding: 35px 30px; border-radius: 24px; border: 2px solid var(--soft-pink); margin-bottom: 45px; }
-        .password-section h3 { margin: 0 0 20px 0; font-family: 'Playfair Display', serif; color: var(--royal-purple); font-size: 1.4rem; font-weight: 600; }
+        .password-section {
+            background: var(--bg-ivory);
+            padding: 35px 30px;
+            border-radius: 24px;
+            border: 2px solid var(--soft-pink);
+            margin-bottom: 45px;
+        }
+
+        .password-section h3 {
+            margin: 0 0 20px 0;
+            font-family: 'Playfair Display', serif;
+            color: var(--royal-purple);
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
 
         input[type="text"] {
-            width: 55%; padding: 16px 24px; margin-bottom: 20px; border: 2px solid var(--light-blue);
-            background-color: #fff; border-radius: 35px; font-family: inherit; text-align: center; font-size: 1.05rem; outline: none; transition: 0.3s ease;
+            width: 55%;
+            padding: 16px 24px;
+            margin-bottom: 20px;
+            border: 2px solid var(--light-blue);
+            background-color: #fff;
+            border-radius: 35px;
+            font-family: inherit;
+            text-align: center;
+            font-size: 1.05rem;
+            outline: none;
+            transition: 0.3s ease;
         }
-        input[type="text"]:focus { border-color: var(--pink-fanta); box-shadow: 0 0 15px rgba(255, 0, 127, 0.2); }
+
+        input[type="text"]:focus {
+            border-color: var(--pink-fanta);
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.2);
+        }
 
         button {
-            background: linear-gradient(135deg, var(--pink-fanta), var(--royal-purple)); color: white; border: none;
-            padding: 16px 55px; border-radius: 35px; font-weight: 700; font-size: 1rem; cursor: pointer;
-            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 8px 20px rgba(255, 0, 127, 0.25);
+            background: linear-gradient(
+                135deg,
+                var(--pink-fanta),
+                var(--royal-purple)
+            );
+            color: white;
+            border: none;
+            padding: 16px 55px;
+            border-radius: 35px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s cubic-bezier(
+                0.175,
+                0.885,
+                0.32,
+                1.275
+            );
+            box-shadow: 0 8px 20px rgba(255, 0, 127, 0.25);
         }
-        button:hover { transform: scale(1.02) translateY(-2px); box-shadow: 0 12px 28px rgba(138, 43, 226, 0.35); }
 
-        .timeline-board { display: flex; flex-direction: column; gap: 45px; margin-top: 30px; text-align: left; }
+        button:hover {
+            transform: scale(1.02) translateY(-2px);
+            box-shadow: 0 12px 28px rgba(138, 43, 226, 0.35);
+        }
+
+        .timeline-board {
+            display: flex;
+            flex-direction: column;
+            gap: 45px;
+            margin-top: 30px;
+            text-align: left;
+        }
 
         .day-card {
-            display: none; background: #fff; padding: 40px; border-radius: 28px; border: 2px solid var(--soft-pink);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.03); animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            display: none;
+            background: #fff;
+            padding: 40px;
+            border-radius: 28px;
+            border: 2px solid var(--soft-pink);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+            animation: slideUp 0.7s cubic-bezier(
+                0.16,
+                1,
+                0.3,
+                1
+            ) forwards;
         }
 
-        .day-title { font-family: 'Playfair Display', serif; color: var(--pink-fanta); font-size: 1.6rem; font-weight: 700; margin-top: 0; margin-bottom: 25px; border-bottom: 2px solid var(--light-blue); padding-bottom: 12px; }
+        .day-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--pink-fanta);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--light-blue);
+            padding-bottom: 12px;
+        }
 
-        .day-content-wrapper { display: flex; flex-direction: column; gap: 35px; }
+        .day-content-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
         @media (min-width: 768px) {
-            .day-content-wrapper { flex-direction: row; align-items: flex-start; }
-            .day-media { flex: 1; min-width: 42%; }
-            .day-info { flex: 1.2; }
+            .day-content-wrapper {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            .day-media {
+                flex: 1;
+                min-width: 42%;
+            }
+
+            .day-info {
+                flex: 1.2;
+            }
         }
 
-        .day-card img, .day-card video { width: 100%; height: auto; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.06); border: 4px solid #fff; }
+        .day-card img,
+        .day-card video {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            border: 4px solid #fff;
+        }
 
-        .day-text { font-family: 'Playfair Display', serif; font-style: italic; line-height: 2; font-size: 1.1rem; color: #3a3a3a; text-align: justify; margin-bottom: 25px; }
+        .day-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            line-height: 2;
+            font-size: 1.1rem;
+            color: #3a3a3a;
+            text-align: justify;
+            margin-bottom: 25px;
+        }
 
-        .clue-box { background: rgba(168, 218, 220, 0.22); padding: 18px 24px; border-radius: 16px; border: 1px dashed var(--royal-purple); margin-bottom: 25px; }
+        .clue-box {
+            background: rgba(168, 218, 220, 0.22);
+            padding: 18px 24px;
+            border-radius: 16px;
+            border: 1px dashed var(--royal-purple);
+            margin-bottom: 25px;
+        }
 
-        .rizka-input-section { background: var(--bg-ivory); padding: 25px; border-radius: 20px; border: 1px solid var(--soft-pink); margin-top: 25px; }
-        .rizka-input-section h4 { margin: 0 0 12px 0; font-family: 'Playfair Display', serif; color: var(--royal-purple); font-size: 1.15rem; }
+        .rizka-input-section {
+            background: var(--bg-ivory);
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid var(--soft-pink);
+            margin-top: 25px;
+        }
 
-        textarea { width: 94%; height: 95px; padding: 14px; border-radius: 14px; border: 2px solid var(--light-blue); font-family: inherit; resize: none; outline: none; margin-bottom: 15px; font-size: 1rem; }
-        textarea:focus { border-color: var(--pink-fanta); }
+        .rizka-input-section h4 {
+            margin: 0 0 12px 0;
+            font-family: 'Playfair Display', serif;
+            color: var(--royal-purple);
+            font-size: 1.15rem;
+        }
+
+        textarea {
+            width: 94%;
+            height: 95px;
+            padding: 14px;
+            border-radius: 14px;
+            border: 2px solid var(--light-blue);
+            font-family: inherit;
+            resize: vertical;
+            outline: none;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        textarea:focus {
+            border-color: var(--pink-fanta);
+        }
 
         .saved-reply-box {
-            display: none; background: linear-gradient(135deg, #ffffff, #fff2f6); padding: 20px 25px; border-radius: 18px;
-            border-left: 6px solid var(--pink-fanta); font-family: 'Playfair Display', serif; font-style: italic;
-            margin-top: 25px; color: #222; line-height: 1.8; font-size: 1.08rem; box-shadow: 3px 5px 15px rgba(0,0,0,0.02);
+            display: none;
+            background: linear-gradient(
+                135deg,
+                #ffffff,
+                #fff2f6
+            );
+            padding: 20px 25px;
+            border-radius: 18px;
+            border-left: 6px solid var(--pink-fanta);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            margin-top: 25px;
+            color: #222;
+            line-height: 1.8;
+            font-size: 1.08rem;
+            box-shadow: 3px 5px 15px rgba(0,0,0,0.02);
         }
 
-        @keyframes fall { 0% { transform: translateY(-10px) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 100% { transform: translateY(105vh) rotate(360deg); opacity: 0; } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes shineText { to { background-position: 200% center; } }
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(105vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shineText {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                width: 94%;
+                padding: 35px 20px;
+                margin: 25px 0;
+                border-radius: 25px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .flower-badge {
+                font-size: 0.7rem;
+                letter-spacing: 1.5px;
+            }
+
+            input[type="text"] {
+                width: 90%;
+            }
+
+            .day-card {
+                padding: 25px 18px;
+            }
+
+            .day-title {
+                font-size: 1.35rem;
+            }
+
+            .day-text {
+                font-size: 1rem;
+            }
+
+            button {
+                padding: 14px 28px;
+            }
+
+            textarea {
+                width: 100%;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <div id="flower-container"></div>
+
     <audio id="myAudio" src="lagu1.mp3" autoplay loop></audio>
 
     <div class="container">
-        <div class="flower-badge">🌸 JANGAN LUPA SCREENSHOOT YA SAYANG... DAN KIRIM KE WHATSAPP AKU...</div>
+
+        <div class="flower-badge">
+            🌸 JANGAN LUPA SCREENSHOOT YA SAYANG...
+            DAN KIRIM KE WHATSAPP AKU...
+        </div>
+
         <h1>RIZKA AULIA ZAZKIA</h1>
-        <div style="font-size: 0.85rem; letter-spacing: 3px; color: var(--royal-purple); text-transform: uppercase; font-weight: 600;">Sekilas Story Kita Yang Sederhana</div>
-        
+
+        <div style="
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            color: var(--royal-purple);
+            text-transform: uppercase;
+            font-weight: 600;
+        ">
+            Sekilas Story Kita Yang Sederhana
+        </div>
+
         <p class="prakata">
-            "Selamat datang bulan kelahiran kamu sayangku. Sudah sejak lama aku menanti ketukan waktu ini tiba. Tidak ada kemilau, hingar bingar, hanya ada ketulusan rasa yang kurajut erat dengan segenap hatiku. Menyayangimu adalah ketetapan terbaik, dan memilikimu adalah hal paling membanggakan yang pernah singgah di dalam takdirku."
+            "Selamat datang bulan kelahiran kamu sayangku.
+            Sudah sejak lama aku menanti ketukan waktu ini tiba.
+            Tidak ada kemilau, hingar bingar, hanya ada ketulusan
+            rasa yang kurajut erat dengan segenap hatiku.
+            Menyayangimu adalah ketetapan terbaik, dan memilikimu
+            adalah hal paling membanggakan yang pernah singgah
+            di dalam takdirku."
         </p>
 
         <!-- KOORDINASI INPUT UTAMA -->
         <div class="password-section">
+
             <h3>🔑 Input Kode Rahasia Harian</h3>
-            <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Masukkan password hadiah fisik hari ini untuk menambah lembar memori baru:</p>
-            <input type="text" id="passInput" placeholder="Ketik kode di sini...">
+
+            <p style="
+                font-size: 0.85rem;
+                color: #666;
+                margin-bottom: 15px;
+            ">
+                Masukkan password hadiah fisik hari ini untuk
+                menambah lembar memori baru:
+            </p>
+
+            <input
+                type="text"
+                id="passInput"
+                placeholder="Ketik kode di sini..."
+                autocomplete="off"
+            >
+
             <br>
-            <button onclick="checkPassword()">Buka Catatan Hari Ini</button>
-            <p id="errorMsg" style="color: var(--pink-fanta); font-size: 0.85rem; display: none; margin-top: 12px; font-weight: 600;">Oops! Kode salah atau belum saatnya dibuka. Periksa lagi ya. ❤️</p>
+
+            <button onclick="checkPassword()">
+                Buka Catatan Hari Ini
+            </button>
+
+            <p
+                id="errorMsg"
+                style="
+                    color: var(--pink-fanta);
+                    font-size: 0.85rem;
+                    display: none;
+                    margin-top: 12px;
+                    font-weight: 600;
+                "
+            >
+                Oops! Kode salah atau belum saatnya dibuka.
+                Periksa lagi ya. ❤️
+            </p>
+
         </div>
 
         <!-- TIMELINE PAPAN BERANTAI UTAMA -->
         <div class="timeline-board">
 
-            <!-- ==================== SLOT HARI KE-1 (CONTOH FORMAT VIDEO) ==================== -->
+            <!-- ==================== SLOT HARI KE-1 ==================== -->
             <div id="day1" class="day-card">
-                <div class="day-title">📍 Day 1: Radiasi Cinta di Detik Pertama</div>
+
+                <div class="day-title">
+                    📍 Day 1: Radiasi Cinta di Detik Pertama
+                </div>
+
                 <div class="day-content-wrapper">
-                    <!-- Media Kiri: Video Hidup -->
+
                     <div class="day-media">
-                        <video autoplay loop muted playsinline width="100%" style="border-radius: 20px; box-shadow: 0 8px 25px rgba(255, 0, 127, 0.1); border: 4px solid #fff; pointer-events: none;">
+
+                        <video
+                            autoplay
+                            loop
+                            muted
+                            playsinline
+                            width="100%"
+                            style="
+                                border-radius: 20px;
+                                box-shadow:
+                                    0 8px 25px rgba(255, 0, 127, 0.1);
+                                border: 4px solid #fff;
+                                pointer-events: none;
+                            "
+                        >
                             <source src="video1.mp4" type="video/mp4">
                         </video>
+
                     </div>
-                    <!-- Info Kanan: Teks & Balasan (Password Diatur di Script Bawah:) -->
+
                     <div class="day-info">
+
                         <div class="day-text">
-                            "Selamat datang di hari pertama di bulan Agustus, bulannya manusia paling indah dan paling berharga di hidup aku. ❤️<br><br> Aku selalu percaya kalau semesta itu adil, dan kehadiran kamu di dunia ini adalah pembuktiannya. Kehadiran kamu di hidup aku adalah hadiah paling indah yang pernah aku terima. Kamu itu senyuman di hari-hari aku, pelukan hangat di setiap malamku, dan satu-satunya alasan kenapa duniaku terasa jauh lebih berwarna, tenang, dan penuh kebahagiaan. Di mata aku, kamu selalu jadi hal paling mengagumkan yang gak akan pernah bosan untuk aku syukuri setiap harinya.<br><br> Tapi buat aku, satu hari jelas gak akan pernah cukup untuk merayakan berartinya kamu di hidup aku. Aku mau mendedikasikan seluruh waktu aku dari tanggal 1 sampai 17 Agustus penuh hanya untuk memanjakan kamu dan membuat kamu merasa jadi wanita paling dicintai di dunia ini tanpa ada yang terlewat sedikit pun. Website ini adalah persembahan kecil dari hati aku yang penuh dengan rencana indah buat kamu. Terima kasih ya, sayang, karena sudah lahir ke dunia ini, sudah melangkah bersamaku, dan selalu menjadi bagian paling manis di setiap detak jantungku. I love you so much, Rizka Aulia Zazkia."
+                            "Selamat datang di hari pertama di bulan Agustus,
+                            bulannya manusia paling indah dan paling berharga
+                            di hidup aku. ❤️<br><br>
+
+                            Aku selalu percaya kalau semesta itu adil,
+                            dan kehadiran kamu di dunia ini adalah pembuktiannya.
+                            Kehadiran kamu di hidup aku adalah hadiah paling indah
+                            yang pernah aku terima. Kamu itu senyuman di hari-hari
+                            aku, pelukan hangat di setiap malamku, dan satu-satunya
+                            alasan kenapa duniaku terasa jauh lebih berwarna,
+                            tenang, dan penuh kebahagiaan. Di mata aku, kamu selalu
+                            jadi hal paling mengagumkan yang gak akan pernah bosan
+                            untuk aku syukuri setiap harinya.<br><br>
+
+                            Tapi buat aku, satu hari jelas gak akan pernah cukup
+                            untuk merayakan berartinya kamu di hidup aku.
+                            Aku mau mendedikasikan seluruh waktu aku dari tanggal
+                            1 sampai 17 Agustus penuh hanya untuk memanjakan kamu
+                            dan membuat kamu merasa jadi wanita paling dicintai
+                            di dunia ini tanpa ada yang terlewat sedikit pun.
+                            Website ini adalah persembahan kecil dari hati aku
+                            yang penuh dengan rencana indah buat kamu.
+                            Terima kasih ya, sayang, karena sudah lahir ke dunia ini,
+                            sudah melangkah bersamaku, dan selalu menjadi bagian
+                            paling manis di setiap detak jantungku.
+                            I love you so much, Rizka Aulia Zazkia."
                         </div>
+
                         <div class="clue-box">
-                            <b style="color: var(--pink-fanta);">🎬 Behind the Footage:</b> "Video di samping ini sengaja aku pilih karena ini adalah momen favorit aku saat melihat senyuman lepas kamu. Setiap kali aku liat gerakan di video ini, duniaku rasanya ikut berhenti berputar karena fokus ke bahagianya kamu."
+                            <b style="color: var(--pink-fanta);">
+                                🎬 Behind the Footage:
+                            </b>
+                            "Video di samping ini sengaja aku pilih karena ini
+                            adalah momen favorit aku saat melihat senyuman lepas
+                            kamu. Setiap kali aku liat gerakan di video ini,
+                            duniaku rasanya ikut berhenti berputar karena fokus
+                            ke bahagianya kamu."
                         </div>
-                        <div id="inputSec_day1" class="rizka-input-section">
-                            <h4>📝 Lembar Balasan di Hari Pertamamu (Day 1)</h4>
-                            <p style="font-size: 0.8rem; color: #666; margin: 0 0 10px 0;">Gimana, hadiah pertama malam ini dan video di atas sukses bikin kamu tersenyum belum? Hahaha. Tulis apa aja yang lagi kamu rasain sekarang di bawah ya, sayang:</p>
-                            <textarea id="text_day1" placeholder="Tumpahkan di sini, bebas..."></textarea><br>
-                            <button onclick="saveRizkaReply('day1')">Kunci & Tempel Catatan</button>
+
+                        <div
+                            id="inputSec_day1"
+                            class="rizka-input-section"
+                        >
+
+                            <h4>
+                                📝 Lembar Balasan di Hari Pertamamu (Day 1)
+                            </h4>
+
+                            <p style="
+                                font-size: 0.8rem;
+                                color: #666;
+                                margin: 0 0 10px 0;
+                            ">
+                                Gimana, hadiah pertama malam ini dan video
+                                di atas sukses bikin kamu tersenyum belum?
+                                Hahaha. Tulis apa aja yang lagi kamu rasain
+                                sekarang di bawah ya, sayang:
+                            </p>
+
+                            <textarea
+                                id="text_day1"
+                                placeholder="Tumpahkan di sini, bebas..."
+                            ></textarea>
+
+                            <br>
+
+                            <button onclick="saveRizkaReply('day1')">
+                                Kunci & Tempel Catatan
+                            </button>
+
                         </div>
-                        <div id="replyBox_day1" class="saved-reply-box"></div>
+
+                        <div
+                            id="replyBox_day1"
+                            class="saved-reply-box"
+                        ></div>
+
                     </div>
                 </div>
             </div>
 
-
-            <!-- ==================== SLOT HARI KE-2 (CONTOH FORMAT FOTO) ==================== -->
+            <!-- ==================== SLOT HARI KE-2 ==================== -->
             <div id="day2" class="day-card">
-                <div class="day-title">📍 Day 2: Indahnya Dunia Sejak Ada Kamu</div>
+
+                <div class="day-title">
+                    📍 Day 2: Indahnya Dunia Sejak Ada Kamu
+                </div>
+
                 <div class="day-content-wrapper">
-                    <!-- Media Kiri: Foto Utama -->
+
                     <div class="day-media">
-                        <img src="foto2.jpg" alt="Memory Day 2">
+                        <img
+                            src="foto2.jpg"
+                            alt="Memory Day 2"
+                        >
                     </div>
-                    <!-- Info Kanan: Teks & Balasan (Password Diatur di Script Bawah: ) -->
+
                     <div class="day-info">
+
                         <div class="day-text">
-                            ""Terima kasih ya, sayang, karena sudah membuka lembar cerita di hari kedua ini. ❤️<br><br>
-Setiap hari aku selalu merenung dan sadar, kalau hal paling indah yang pernah terjadi di dalam hidup aku adalah momen di mana aku diizinkan untuk memiliki kamu. Di dunia yang kadang terasa rumit dan melelahkan ini, kehadiran kamu adalah satu-satunya fase yang selalu berhasil membuat duniaku terasa jauh lebih tenang, damai, dan penuh warna. Menyayangi kamu itu seperti bernapas; hal paling alami yang dilakukan jantungku tanpa perlu pernah diajari.<br><br>
-Aku benar-benar bersyukur kepada semesta karena telah mengirimkan manusia seindah dan setulus kamu untuk berjalan di sisiku. Kamu bukan cuma pelengkap, tapi kamu adalah pusat dari setiap senyuman, tawa, dan rasa bahagia yang aku punya saat ini. Aku mau kamu selalu ingat, dari tanggal 1 sampai 17 Agustus nanti—bahkan hingga ratusan bulan setelah ini—kamu akan selalu jadi prioritas utamaku, ruang paling nyaman di hidupku, dan manusia paling berharga yang akan selalu aku jaga dengan seluruh cintaku. Website ini akan terus berjalan menemanimu sampai hari lahirmu tiba, jadi bersiaplah untuk terus menjadi wanita yang paling dicintai di dunia ini setiap harinya. I love you more than words can say, Rizka Aulia ZAZKIA."
-"
+                            "Terima kasih ya, sayang, karena sudah membuka
+                            lembar cerita di hari kedua ini. ❤️<br><br>
+
+                            Setiap hari aku selalu merenung dan sadar,
+                            kalau hal paling indah yang pernah terjadi
+                            di dalam hidup aku adalah momen di mana aku
+                            diizinkan untuk memiliki kamu. Di dunia yang
+                            kadang terasa rumit dan melelahkan ini,
+                            kehadiran kamu adalah satu-satunya fase yang
+                            selalu berhasil membuat duniaku terasa jauh
+                            lebih tenang, damai, dan penuh warna.
+                            Menyayangi kamu itu seperti bernapas;
+                            hal paling alami yang dilakukan jantungku
+                            tanpa perlu pernah diajari.<br><br>
+
+                            Aku benar-benar bersyukur kepada semesta
+                            karena telah mengirimkan manusia seindah
+                            dan setulus kamu untuk berjalan di sisiku.
+                            Kamu bukan cuma pelengkap, tapi kamu adalah
+                            pusat dari setiap senyuman, tawa, dan rasa
+                            bahagia yang aku punya saat ini. Aku mau kamu
+                            selalu ingat, dari tanggal 1 sampai 17 Agustus
+                            nanti—bahkan hingga ratusan bulan setelah ini—
+                            kamu akan selalu jadi prioritas utamaku,
+                            ruang paling nyaman di hidupku, dan manusia
+                            paling berharga yang akan selalu aku jaga
+                            dengan seluruh cintaku. Website ini akan terus
+                            berjalan menemanimu sampai hari lahirmu tiba,
+                            jadi bersiaplah untuk terus menjadi wanita
+                            yang paling dicintai di dunia ini setiap harinya.
+                            I love you more than words can say,
+                            Rizka Aulia ZAZKIA."
                         </div>
+
                         <div class="clue-box">
-                            <b style="color: var(--pink-fanta);">📸 Behind the Picture:</b> "Foto di samping menyimpan kenangan manis tentang saat kita... saat aku diberikan kejutan indah yang penuh akan warna dan tidak ternilai harganya... bahagiaaaa seperti layaknya aku pria paling beruntung di duniaaa..."
+                            <b style="color: var(--pink-fanta);">
+                                📸 Behind the Picture:
+                            </b>
+                            "Foto di samping menyimpan kenangan manis
+                            tentang saat kita... saat aku diberikan
+                            kejutan indah yang penuh akan warna dan
+                            tidak ternilai harganya... bahagiaaaa
+                            seperti layaknya aku pria paling beruntung
+                            di duniaaa..."
                         </div>
-                        <div id="inputSec_day2" class="rizka-input-section">
-                            <h4>📝 Lembar Balasan Jurnal (Day 2)</h4>
-                            <textarea id="text_day2" placeholder="Tumpahkan di sini, bebas..."></textarea><br>
-                            <button onclick="saveRizkaReply('day2')">Kunci & Tempel Catatan</button>
+
+                        <div
+                            id="inputSec_day2"
+                            class="rizka-input-section"
+                        >
+
+                            <h4>
+                                📝 Lembar Balasan Jurnal (Day 2)
+                            </h4>
+
+                            <textarea
+                                id="text_day2"
+                                placeholder="Tumpahkan di sini, bebas..."
+                            ></textarea>
+
+                            <br>
+
+                            <button onclick="saveRizkaReply('day2')">
+                                Kunci & Tempel Catatan
+                            </button>
+
                         </div>
-                        <div id="replyBox_day2" class="saved-reply-box"></div>
+
+                        <div
+                            id="replyBox_day2"
+                            class="saved-reply-box"
+                        ></div>
+
                     </div>
                 </div>
             </div>
 
-
-             <!-- ==================== SLOT HARI KE-3 (CONTOH FORMAT FOTO) ==================== -->
+            <!-- ==================== SLOT HARI KE-3 ==================== -->
             <div id="day3" class="day-card">
-                <div class="day-title">📍 Day 3: Zat Tuhan Yang Turun Didunia</div>
+
+                <div class="day-title">
+                    📍 Day 3: Zat Tuhan Yang Turun Didunia
+                </div>
+
                 <div class="day-content-wrapper">
-                    <!-- Media Kiri: Foto Utama -->
+
                     <div class="day-media">
-                        <img src="foto3.jpg" alt="Memory Day 3">
+                        <img
+                            src="foto3.jpg"
+                            alt="Memory Day 3"
+                        >
                     </div>
-                    <!-- Info Kanan: Teks & Balasan (Password Diatur di Script Bawah: ) -->
+
                     <div class="day-info">
+
                         <div class="day-text">
-                            ""Selamat datang di hari ketiga di bulan Agustus, bulannya manusia favoritku. ❤️<br><br>
-Aku sengaja memberikan kalender kustom itu hari ini karena aku ingin kamu melihat bagaimana angka 1 sampai 17 Agustus berubah menjadi hari-hari yang paling istimewa. Bagiku, waktu gak lagi dihitung dengan detik atau jam, tapi dihitung dari setiap momen berharga yang aku lewati bersama kamu. Kamu tahu gak? Kamu itu seperti zat utama yang selalu mengalirkan energi positif, kebahagiaan, dan alasan di setiap detak jantungku untuk selalu bersemangat menjalani hari.<br><br>
-Setiap kali aku melihat kalender itu, yang aku lihat bukan cuma deretan tanggal merah atau hari libur, tapi aku melihat rangkaian kejutan yang sudah aku siapkan dengan penuh rasa cinta cuma buat kamu. Aku mau mendedikasikan bulan ini sepenuhnya untuk membuat kamu merasa menjadi wanita yang paling disayangi dan dirayakan di dunia ini. Jurnal ini masih sangat panjang, jadi tetap simpan senyuman manismu itu untuk hari-hari ke depan ya, sayang. I love you to the moon and back, Rizka Aulia ZAZKIA."
+                            "Selamat datang di hari ketiga di bulan Agustus,
+                            bulannya manusia favoritku. ❤️<br><br>
+
+                            Aku sengaja memberikan kalender kustom itu hari ini
+                            karena aku ingin kamu melihat bagaimana angka 1
+                            sampai 17 Agustus berubah menjadi hari-hari yang
+                            paling istimewa. Bagiku, waktu gak lagi dihitung
+                            dengan detik atau jam, tapi dihitung dari setiap
+                            momen berharga yang aku lewati bersama kamu.
+                            Kamu tahu gak? Kamu itu seperti zat utama yang
+                            selalu mengalirkan energi positif, kebahagiaan,
+                            dan alasan di setiap detak jantungku untuk selalu
+                            bersemangat menjalani hari.<br><br>
+
+                            Setiap kali aku melihat kalender itu, yang aku lihat
+                            bukan cuma deretan tanggal merah atau hari libur,
+                            tapi aku melihat rangkaian kejutan yang sudah aku
+                            siapkan dengan penuh rasa cinta cuma buat kamu.
+                            Aku mau mendedikasikan bulan ini sepenuhnya untuk
+                            membuat kamu merasa menjadi wanita yang paling
+                            disayangi dan dirayakan di dunia ini. Jurnal ini
+                            masih sangat panjang, jadi tetap simpan senyuman
+                            manismu itu untuk hari-hari ke depan ya, sayang.
+                            I love you to the moon and back,
+                            Rizka Aulia ZAZKIA."
                         </div>
+
                         <div class="clue-box">
-                            <b style="color: var(--pink-fanta);">📸 Behind the Picture:</b> "Foto di samping menyimpan kenangan manis tentang saat kita... Saat dimana.. Love Bombing sedang terlaksana... Dunia Seakan tidak ada batasnya bagi kita... tidak ada ruang dan waktu yang gak mampu kita tembusss..."
+                            <b style="color: var(--pink-fanta);">
+                                📸 Behind the Picture:
+                            </b>
+                            "Foto di samping menyimpan kenangan manis
+                            tentang saat kita... Saat dimana.. Love Bombing
+                            sedang terlaksana... Dunia Seakan tidak ada
+                            batasnya bagi kita... tidak ada ruang dan waktu
+                            yang gak mampu kita tembusss..."
                         </div>
-                        <div id="inputSec_day3" class="rizka-input-section">
-                            <h4>📝 Lembar Balasan Jurnal (Day 3)</h4>
-                            <textarea id="text_day3" placeholder="Tumpahkan di sini, bebas..."></textarea><br>
-                            <button onclick="saveRizkaReply('day3')">Kunci & Tempel Catatan</button>
+
+                        <div
+                            id="inputSec_day3"
+                            class="rizka-input-section"
+                        >
+
+                            <h4>
+                                📝 Lembar Balasan Jurnal (Day 3)
+                            </h4>
+
+                            <textarea
+                                id="text_day3"
+                                placeholder="Tumpahkan di sini, bebas..."
+                            ></textarea>
+
+                            <br>
+
+                            <button onclick="saveRizkaReply('day3')">
+                                Kunci & Tempel Catatan
+                            </button>
+
                         </div>
-                        <div id="replyBox_day3" class="saved-reply-box"></div>
+
+                        <div
+                            id="replyBox_day3"
+                            class="saved-reply-box"
+                        ></div>
+
                     </div>
                 </div>
             </div>
 
-             <!-- ==================== SLOT HARI KE-4 (CONTOH FORMAT FOTO) ==================== -->
+            <!-- ==================== SLOT HARI KE-4 ==================== -->
             <div id="day4" class="day-card">
-                <div class="day-title">📍 Day 4: Karunia Tuhan Terindah Yang Tercipta</div>
+
+                <div class="day-title">
+                    📍 Day 4: Karunia Tuhan Terindah Yang Tercipta
+                </div>
+
                 <div class="day-content-wrapper">
-                    <!-- Media Kiri: Foto Utama -->
+
                     <div class="day-media">
-                        <img src="foto4.jpg" alt="Memory Day 4">
+                        <img
+                            src="foto4.jpg"
+                            alt="Memory Day 4"
+                        >
                     </div>
-                    <!-- Info Kanan: Teks & Balasan (Password Diatur di Script Bawah: ) -->
+
                     <div class="day-info">
+
                         <div class="day-text">
-                            "Sayang, kalau aku disuruh menjabarkan seberapa besar rasa cintaku padamu, rasanya seluruh kata di dunia ini pun tidak akan pernah cukup untuk menampungnya. Aku benar-benar bersyukur kepada Tuhan karena telah mengirimkan sosok seindah dan sesabar kamu ke dalam hidupku yang penuh dengan kekurangan ini; memilikimu adalah anugerah paling luar biasa yang pernah kurasakan. Anehnya, meski aku tahu betapa berharganya kamu, aku masih saja sering berbuat salah, membuat kekeliruan, dan menciptakan miss yang tidak seharusnya ada dalam hubungan kita. Sering kali kebodohan dan egoku justru berujung menorehkan luka serta rasa sakit di hatimu, membuatku merasa menjadi orang paling bersalah karena telah menyakiti malaikat sebaik kamu.<br><br> 
-                            Namun, di situlah letak keajaiban dan ketulusan hatimu yang selalu membuatku bertekuk lutut tak berdaya. Alih-alih menghukumku dengan kemarahan yang membakar atau rasa sakit yang setimpal, kamu selalu memilih untuk menyambutku kembali dengan pelukan hangat dan pengampunan yang begitu luas. Kamu tidak pernah membalas egoku dengan rasa sakit yang lebih besar; justru dari semua kesalahan yang kuperbuat, rasa bersalah di dalam dadaku sendirilah yang menghukumku karena telah menyia-nyiakan ketulusanmu. Terima kasih ya, Sayang, karena selalu menjadi rumah yang paling pemaaf, menuntun langkahku yang sering tersesat, dan mencintaiku tanpa syarat walau aku sering kali menyakitimu—aku berjanji akan terus belajar menjadi pria yang lebih baik dan layak untuk bersanding di sisimu selamanya."<br><br>
-                            Gimana Day 4 Ini...??? Are U Happy... Ayang kasihan sakit punggung karena kasurnya keras... jadi aku belikan saja yaaa... buat ditambal atasnya... jadi ayang nyaman... semoga suka sama hadiahnya... Love You Sayangggg Akuuu...
+                            "Sayang, kalau aku disuruh menjabarkan seberapa
+                            besar rasa cintaku padamu, rasanya seluruh kata
+                            di dunia ini pun tidak akan pernah cukup untuk
+                            menampungnya. Aku benar-benar bersyukur kepada
+                            Tuhan karena telah mengirimkan sosok seindah dan
+                            sesabar kamu ke dalam hidupku yang penuh dengan
+                            kekurangan ini; memilikimu adalah anugerah paling
+                            luar biasa yang pernah kurasakan. Anehnya, meski
+                            aku tahu betapa berharganya kamu, aku masih saja
+                            sering berbuat salah, membuat kekeliruan, dan
+                            menciptakan miss yang tidak seharusnya ada dalam
+                            hubungan kita. Sering kali kebodohan dan egoku
+                            justru berujung menorehkan luka serta rasa sakit
+                            di hatimu, membuatku merasa menjadi orang paling
+                            bersalah karena telah menyakiti malaikat sebaik kamu.<br><br>
+
+                            Namun, di situlah letak keajaiban dan ketulusan
+                            hatimu yang selalu membuatku bertekuk lutut tak
+                            berdaya. Alih-alih menghukumku dengan kemarahan
+                            yang membakar atau rasa sakit yang setimpal,
+                            kamu selalu memilih untuk menyambutku kembali
+                            dengan pelukan hangat dan pengampunan yang begitu
+                            luas. Kamu tidak pernah membalas egoku dengan rasa
+                            sakit yang lebih besar; justru dari semua kesalahan
+                            yang kuperbuat, rasa bersalah di dalam dadaku
+                            sendirilah yang menghukumku karena telah menyia-nyiakan
+                            ketulusanmu. Terima kasih ya, Sayang, karena selalu
+                            menjadi rumah yang paling pemaaf, menuntun langkahku
+                            yang sering tersesat, dan mencintaiku tanpa syarat
+                            walau aku sering kali menyakitimu—aku berjanji akan
+                            terus belajar menjadi pria yang lebih baik dan layak
+                            untuk bersanding di sisimu selamanya."<br><br>
+
+                            Gimana Day 4 Ini...??? Are U Happy...
+                            Ayang kasihan sakit punggung karena kasurnya keras...
+                            jadi aku belikan saja yaaa... buat ditambal atasnya...
+                            jadi ayang nyaman... semoga suka sama hadiahnya...
+                            Love You Sayangggg Akuuu...
                         </div>
+
                         <div class="clue-box">
-                            <b style="color: var(--pink-fanta);">📸 Behind the Picture:</b> "Foto Ini... Adalah Momen Paling Berkesan Kamu Kan.... Disitu Kita Pacaran Di Bathup Dengan Indahnyaaaa... Kita Berbagi Cerita... Kita Berbagi Segala Kisah... Keluhan dan Berkisah Tentang Masa Depan..."
+                            <b style="color: var(--pink-fanta);">
+                                📸 Behind the Picture:
+                            </b>
+                            "Foto Ini... Adalah Momen Paling Berkesan Kamu Kan....
+                            Disitu Kita Pacaran Di Bathup Dengan Indahnyaaaa...
+                            Kita Berbagi Cerita... Kita Berbagi Segala Kisah...
+                            Keluhan dan Berkisah Tentang Masa Depan..."
                         </div>
-                        <div id="inputSec_day4" class="rizka-input-section">
-                            <h4>📝 Lembar Balasan Jurnal (Day 4)</h4>
-                            <textarea id="text_day4" placeholder="Tumpahkan di sini, bebas..."></textarea><br>
-                            <button onclick="saveRizkaReply('day4')">Kunci & Tempel Catatan</button>
+
+                        <div
+                            id="inputSec_day4"
+                            class="rizka-input-section"
+                        >
+
+                            <h4>
+                                📝 Lembar Balasan Jurnal (Day 4)
+                            </h4>
+
+                            <textarea
+                                id="text_day4"
+                                placeholder="Tumpahkan di sini, bebas..."
+                            ></textarea>
+
+                            <br>
+
+                            <button onclick="saveRizkaReply('day4')">
+                                Kunci & Tempel Catatan
+                            </button>
+
                         </div>
-                        <div id="replyBox_day4" class="saved-reply-box"></div>
+
+                        <div
+                            id="replyBox_day4"
+                            class="saved-reply-box"
+                        ></div>
+
                     </div>
                 </div>
             </div>
-        </div>
-  
-                <!-- ==================== SLOT HARI KE-5 (CONTOH FORMAT VIDEO) ==================== -->
+            <!-- ==================== SLOT HARI KE-5 ==================== -->
             <div id="day5" class="day-card">
-                <div class="day-title">📍 Day 5: Anugerah Yang Terlahir Dimuka Bumi Untuk Aku Cintai Sehidup Sesurga</div>
+
+                <div class="day-title">
+                    📍 Day 5: Anugerah Yang Terlahir Dimuka Bumi
+                    Untuk Aku Cintai Sehidup Sesurga
+                </div>
+
                 <div class="day-content-wrapper">
-                    <!-- Media Kiri: Video Hidup -->
+
                     <div class="day-media">
-                        <video autoplay loop muted playsinline width="100%" style="border-radius: 20px; box-shadow: 0 8px 25px rgba(255, 0, 127, 0.1); border: 4px solid #fff; pointer-events: none;">
+
+                        <video
+                            autoplay
+                            loop
+                            muted
+                            playsinline
+                            width="100%"
+                            style="
+                                border-radius: 20px;
+                                box-shadow:
+                                    0 8px 25px rgba(255, 0, 127, 0.1);
+                                border: 4px solid #fff;
+                                pointer-events: none;
+                            "
+                        >
                             <source src="video5.mp4" type="video/mp4">
                         </video>
+
                     </div>
-                    <!-- Info Kanan: Teks & Balasan (Password Diatur di Script Bawah:) -->
+
                     <div class="day-info">
+
                         <div class="day-text">
-                            "Sayanggg... Aku sekarang mengerti tiap bait kata dan kalimat yang terucap Malam Itu... Aku Sadar dan Mengerti... Setidaknya, izinkan aku selesaikan awal yang aku mulai yaaa... Karena barang ini sudah terlanjur aku beli... Dan aku siap kalau memang kamu harus marah kembali... aku cuman mau selesaikan misi ini... <br><br>
-Maaf telah salah cara aku mencintai kamu... semata karena aku ingin membahagiakan kamu... Faktanya aku malah membahayakan kita... membahayakan mimpi yang sudah kita ucap sama - sama... Aku jujur saja... Takut sekali malam itu... tapi aku sadar... aku bukan pengecut... sudah sejauh ini... aku rusak mimpi - mimpi kita... sekarang izinin aku susun ulang semuanya... <br><br>
-Kita rancang semuanya... kita buat pola baru... pasti akan ada perdebatan baru... tapi aku yakin... itu bukan hal sulit... karena nyatanya... tiap kita evaluasi semuanya... kita tidak saling jatuhkan... kita bangkitkan kembali... kita kuatkan... memang saat seperti malam itulah... saat evaluasi semua terucap... semua obrolan dan perkataan pasti terucap jelas dan lantang... tapi dengan cara itu... Kita Evaluasi Semuanya... beribu salah kita maafkan... berjuta masalah kita selesaikan... Satukan lagi yaaa... Aku kena hati banget malam itu... sadar bangettt... sadar pola ini salah... aku rusak perlahan kepercayaan kamu... tapi terlanjur basah... aku selami sedikit lagi yaaa... <br><br>
-Ini ada hadiah Arloji untuk kamu... walau bukan warna yang kamu mau... tapi aku coba cari yang paling mendekati... dan teringat kamu kasih opsi warna tersebut... Diterima ya sayang aku... setelah itu... nasihati aku lagi ya sayang... aku cuman mau selesaikan misi aku saja...<br><br>
-R = Relaxation and Spa, I = In The Dark You Bright, Z = Zat Pelebur, K = Kasur Nyaman (Walau Salah Merk), A = Arloji. RIZKA... aku coba susun sebisa aku... jadi tolong diterima saja ya sayang.... <br><br>
-Love You MY Future Wife... My Girl... My Wine... My Mine... My Everythink... Selamat Datang Dibulan Lahir Kamu... Bulan dimana lahir seorang wanita tangguh bernama RIZKA AULIA ZAZKIA... sejak 24 tahun yang lalu... dia wanita yang mandiri... dia wanita yang tangguh... dia WANITAKU... teruslah bersinar sayanggg... kejar semua harapan kamu... aku disini hadir... untuk wujudkan semua itu... aku berharap pada Tuhan... Jadikan dia wanita yang paling bahagia dari tanganku ya Tuhan... Aamiin..."
+                            "Sayanggg... Aku sekarang mengerti tiap bait kata
+                            dan kalimat yang terucap Malam Itu... Aku Sadar dan
+                            Mengerti... Setidaknya, izinkan aku selesaikan awal
+                            yang aku mulai yaaa... Karena barang ini sudah
+                            terlanjur aku beli... Dan aku siap kalau memang
+                            kamu harus marah kembali... aku cuman mau
+                            selesaikan misi ini... <br><br>
+
+                            Maaf telah salah cara aku mencintai kamu...
+                            semata karena aku ingin membahagiakan kamu...
+                            Faktanya aku malah membahayakan kita...
+                            membahayakan mimpi yang sudah kita ucap sama - sama...
+                            Aku jujur saja... Takut sekali malam itu...
+                            tapi aku sadar... aku bukan pengecut...
+                            sudah sejauh ini... aku rusak mimpi - mimpi kita...
+                            sekarang izinin aku susun ulang semuanya... <br><br>
+
+                            Kita rancang semuanya... kita buat pola baru...
+                            pasti akan ada perdebatan baru... tapi aku yakin...
+                            itu bukan hal sulit... karena nyatanya... tiap kita
+                            evaluasi semuanya... kita tidak saling jatuhkan...
+                            kita bangkitkan kembali... kita kuatkan...
+                            memang saat seperti malam itulah... saat evaluasi
+                            semua terucap... semua obrolan dan perkataan pasti
+                            terucap jelas dan lantang... tapi dengan cara itu...
+                            Kita Evaluasi Semuanya... beribu salah kita maafkan...
+                            berjuta masalah kita selesaikan... Satukan lagi yaaa...
+                            Aku kena hati banget malam itu... sadar bangettt...
+                            sadar pola ini salah... aku rusak perlahan kepercayaan
+                            kamu... tapi terlanjur basah... aku selami sedikit
+                            lagi yaaa... <br><br>
+
+                            Ini ada hadiah Arloji untuk kamu... walau bukan warna
+                            yang kamu mau... tapi aku coba cari yang paling
+                            mendekati... dan teringat kamu kasih opsi warna tersebut...
+                            Diterima ya sayang aku... setelah itu... nasihati aku
+                            lagi ya sayang... aku cuman mau selesaikan misi aku saja...<br><br>
+
+                            R = Relaxation and Spa,
+                            I = In The Dark You Bright,
+                            Z = Zat Pelebur,
+                            K = Kasur Nyaman (Walau Salah Merk),
+                            A = Arloji.
+                            RIZKA... aku coba susun sebisa aku...
+                            jadi tolong diterima saja ya sayang.... <br><br>
+
+                            Love You MY Future Wife... My Girl... My Wine...
+                            My Mine... My Everythink...
+                            Selamat Datang Dibulan Lahir Kamu...
+                            Bulan dimana lahir seorang wanita tangguh bernama
+                            RIZKA AULIA ZAZKIA... sejak 24 tahun yang lalu...
+                            dia wanita yang mandiri... dia wanita yang tangguh...
+                            dia WANITAKU... teruslah bersinar sayanggg...
+                            kejar semua harapan kamu... aku disini hadir...
+                            untuk wujudkan semua itu... aku berharap pada Tuhan...
+                            Jadikan dia wanita yang paling bahagia dari tanganku
+                            ya Tuhan... Aamiin..."
                         </div>
+
                         <div class="clue-box">
-                            <b style="color: var(--pink-fanta);">🎬 Behind the Footage:</b> "Video Ini Adalah Video Favorit Yang Pasti Aku Putar Saat Rindu Dengan Wanitakuuu... Dia Hadir dan Dia Lahir Untuk Jadi Tujuanku..."
+                            <b style="color: var(--pink-fanta);">
+                                🎬 Behind the Footage:
+                            </b>
+                            "Video Ini Adalah Video Favorit Yang Pasti Aku Putar
+                            Saat Rindu Dengan Wanitakuuu... Dia Hadir dan Dia
+                            Lahir Untuk Jadi Tujuanku..."
                         </div>
-                        <div id="inputSec_day5" class="rizka-input-section">
-                            <h4>📝 Lembar Balasan di Hari Pertamamu (Day 5)</h4>
-                            <p style="font-size: 0.8rem; color: #666; margin: 0 0 10px 0;">JELASKANLAH ISI HATIMU SAYANG... AKU TERIMA BAIK DAN BURUKNYA... BIARKAN KAMU TUMPAHKAN SELURUHNYA... AKU KASIH RUANG JUJUR UNTUK KAMU...:</p>
-                            <textarea id="text_day5" placeholder="TUANGKAN ISI HATIMU SAYANG..."></textarea><br>
-                            <button onclick="saveRizkaReply('day5')">Kunci & Tempel Catatan</button>
+
+                        <div
+                            id="inputSec_day5"
+                            class="rizka-input-section"
+                        >
+
+                            <h4>
+                                📝 Lembar Balasan di Hari Pertamamu (Day 5)
+                            </h4>
+
+                            <p style="
+                                font-size: 0.8rem;
+                                color: #666;
+                                margin: 0 0 10px 0;
+                            ">
+                                JELASKANLAH ISI HATIMU SAYANG...
+                                AKU TERIMA BAIK DAN BURUKNYA...
+                                BIARKAN KAMU TUMPAHKAN SELURUHNYA...
+                                AKU KASIH RUANG JUJUR UNTUK KAMU...:
+                            </p>
+
+                            <textarea
+                                id="text_day5"
+                                placeholder="TUANGKAN ISI HATIMU SAYANG..."
+                            ></textarea>
+
+                            <br>
+
+                            <button onclick="saveRizkaReply('day5')">
+                                Kunci & Tempel Catatan
+                            </button>
+
                         </div>
-                        <div id="replyBox_day5" class="saved-reply-box"></div>
+
+                        <div
+                            id="replyBox_day5"
+                            class="saved-reply-box"
+                        ></div>
+
                     </div>
                 </div>
             </div>
 
-             <!-- ==================== SLOT HARI KE-6 (CONTOH FORMAT FOTO) ==================== -->
+            <!-- ==================== SLOT HARI KE-6 ==================== -->
             <div id="day6" class="day-card">
-                <div class="day-title">📍 Day 6: Apparel For Sleep</div>
+
+                <div class="day-title">
+                    📍 Day 6: Apparel For Sleep
+                </div>
+
                 <div class="day-content-wrapper">
-                    <!-- Media Kiri: Foto Utama -->
+
                     <div class="day-media">
-                        <img src="foto6.jpg" alt="Memory Day 6">
+                        <img
+                            src="foto6.jpg"
+                            alt="Memory Day 6"
+                        >
                     </div>
-                    <!-- Info Kanan: Teks & Balasan (Password Diatur di Script Bawah: ) -->
+
                     <div class="day-info">
+
                         <div class="day-text">
-                            "Hari ini aku kasih kamu Apparel for Sleep, baju tidur yang lucu ini... Hehe, aku tahu kamu sebenernya udah punya baju tidur, dan aku inget banget kamu pernah billing mau beli yang model ini tapi nunggu diskon dulu... Pas kamu bilang gitu, aku langsung mikir, "Ah, lucu banget kalau dia yang pakai." Jadi, tanpa nunggu diskonnya dateng, aku beliin ini langsung buat kamu sekarang sayang... Aku cuman mau wujudin apa yang kamu pengen, sekecil apa pun itu.<br><br>
-                            Aku sengaja pilih ini, karena aku mau baju tidur ini yang meluk kamu setiap malam... menggantikan aku yang belum bisa selalu ada di samping kamu buat jagain kamu... Aku mau kamu bisa istirahat dengan nyaman, tidur nyenyak tanpa beban pikiran, dan bangun dengan senyuman besok pagi... Karena perjalanan kita di depan masih panjang banget sayang, aku mau kamu selalu punya energi buat jalan bareng aku.<br><br>
-                            Sayang... aku tahu kamu itu wanita yang mandiri banget, wanita tangguh yang terbiasa apa-apa bisa sendiri. Aku kagum banget sama hal itu dari kamu. Tapi sayang, tolong jangan pernah merasa kamu harus selalu sendirian ya... Aku ada di sini, selalu ada di tiap saat kamu butuh. Kenapa harus dihadapi sendiri kalau sekarang udah ada aku? Jadi, kalau bisa, mulai sekarang libatkan aku ya sayang dalam hal apa pun itu... Berbagi capeknya sama aku, berbagi ceritanya sama aku. Aku mau jadi tempat bersandar kamu.<br><br>
-                            Lewat kado hari ini juga, aku mau jujur dari lubuk hati aku yang paling dalam... Kalau kamu bilang aku harus berubah... demi Tuhan, aku siap sayang... Aku siap berubah demi kebahagiaan kita bersama... Aku sadar kemarin aku banyak egoisnya, banyak salahnya, tapi tolong jangan ragukan kalau aku sayangggg banget sama kamu... Rasa sayang aku ke kamu itu yang jadi alasan aku buat terus belajar jadi laki-laki yang lebih baik lagi... Aku ga mau kehilangan kamu, aku ga mau mimpi kita hancur cuma karena kebodohan aku... Misi aku buat bahagiain kamu masih panjang, dan aku gak akan berhenti di sini.<br><br>
-                            Mulai hari ini, detik ini, yuk kita buka lembaran baru... Tuntun aku ya sayang... kalau aku salah, tegur aku... kalau aku mulai melenceng, ingetin aku... Aku siap dengerin semua nasihat kamu karena aku tahu itu semua demi kebaikan kita, demi masa depan kita...<br><br>
-                            Terima ya sayang kado hari ini... Dipakai yaaa, pasti makin lucu kalau kamu yang pakai... Semoga suka, dan semoga bisa nemenin tidur nyenyak kamu malam ini...<br><br>
-                            I Love you so much, my future wife... Bobo yang nyenyak ya wanitaku, kekasihku, duniaku... Aamiin..."
+                            "Hari ini aku kasih kamu Apparel for Sleep,
+                            baju tidur yang lucu ini... Hehe, aku tahu kamu
+                            sebenernya udah punya baju tidur, dan aku inget
+                            banget kamu pernah billing mau beli yang model ini
+                            tapi nunggu diskon dulu... Pas kamu bilang gitu,
+                            aku langsung mikir, "Ah, lucu banget kalau dia
+                            yang pakai." Jadi, tanpa nunggu diskonnya dateng,
+                            aku beliin ini langsung buat kamu sekarang sayang...
+                            Aku cuman mau wujudin apa yang kamu pengen,
+                            sekecil apa pun itu.<br><br>
+
+                            Aku sengaja pilih ini, karena aku mau baju tidur
+                            ini yang meluk kamu setiap malam... menggantikan
+                            aku yang belum bisa selalu ada di samping kamu
+                            buat jagain kamu... Aku mau kamu bisa istirahat
+                            dengan nyaman, tidur nyenyak tanpa beban pikiran,
+                            dan bangun dengan senyuman besok pagi...
+                            Karena perjalanan kita di depan masih panjang
+                            banget sayang, aku mau kamu selalu punya energi
+                            buat jalan bareng aku.<br><br>
+
+                            Sayang... aku tahu kamu itu wanita yang mandiri
+                            banget, wanita tangguh yang terbiasa apa-apa bisa
+                            sendiri. Aku kagum banget sama hal itu dari kamu.
+                            Tapi sayang, tolong jangan pernah merasa kamu
+                            harus selalu sendirian ya... Aku ada di sini,
+                            selalu ada di tiap saat kamu butuh.
+                            Kenapa harus dihadapi sendiri kalau sekarang
+                            udah ada aku? Jadi, kalau bisa, mulai sekarang
+                            libatkan aku ya sayang dalam hal apa pun itu...
+                            Berbagi capeknya sama aku, berbagi ceritanya sama aku.
+                            Aku mau jadi tempat bersandar kamu.<br><br>
+
+                            Lewat kado hari ini juga, aku mau jujur dari lubuk
+                            hati aku yang paling dalam... Kalau kamu bilang
+                            aku harus berubah... demi Tuhan, aku siap sayang...
+                            Aku siap berubah demi kebahagiaan kita bersama...
+                            Aku sadar kemarin aku banyak egoisnya, banyak salahnya,
+                            tapi tolong jangan ragukan kalau aku sayangggg banget
+                            sama kamu... Rasa sayang aku ke kamu itu yang jadi
+                            alasan aku buat terus belajar jadi laki-laki yang
+                            lebih baik lagi... Aku ga mau kehilangan kamu,
+                            aku ga mau mimpi kita hancur cuma karena kebodohan aku...
+                            Misi aku buat bahagiain kamu masih panjang,
+                            dan aku gak akan berhenti di sini.<br><br>
+
+                            Mulai hari ini, detik ini, yuk kita buka lembaran baru...
+                            Tuntun aku ya sayang... kalau aku salah, tegur aku...
+                            kalau aku mulai melenceng, ingetin aku...
+                            Aku siap dengerin semua nasihat kamu karena aku tahu
+                            itu semua demi kebaikan kita, demi masa depan kita...<br><br>
+
+                            Terima ya sayang kado hari ini... Dipakai yaaa,
+                            pasti makin lucu kalau kamu yang pakai...
+                            Semoga suka, dan semoga bisa nemenin tidur nyenyak
+                            kamu malam ini...<br><br>
+
+                            I Love you so much, my future wife...
+                            Bobo yang nyenyak ya wanitaku, kekasihku, duniaku...
+                            Aamiin..."
                         </div>
+
                         <div class="clue-box">
-                            <b style="color: var(--pink-fanta);">📸 Behind the Picture:</b> "Foto Ini... Adalah Momen Paling Berkesan Kamu Kan.... Disitu Kita Pacaran Di Bathup Dengan Indahnyaaaa... Kita Berbagi Cerita... Kita Berbagi Segala Kisah... Keluhan dan Berkisah Tentang Masa Depan..."
+                            <b style="color: var(--pink-fanta);">
+                                📸 Behind the Picture:
+                            </b>
+                            "Foto Ini... Adalah Momen Paling Berkesan Kamu Kan....
+                            Disitu Kita Pacaran Di Bathup Dengan Indahnyaaaa...
+                            Kita Berbagi Cerita... Kita Berbagi Segala Kisah...
+                            Keluhan dan Berkisah Tentang Masa Depan..."
                         </div>
-                        <div id="inputSec_day6" class="rizka-input-section">
-                            <h4>📝 Lembar Balasan Jurnal (Day 6)</h4>
-                            <textarea id="text_day6" placeholder="Tumpahkan di sini, bebas..."></textarea><br>
-                            <button onclick="saveRizkaReply('day6')">Kunci & Tempel Catatan</button>
+
+                        <div
+                            id="inputSec_day6"
+                            class="rizka-input-section"
+                        >
+
+                            <h4>
+                                📝 Lembar Balasan Jurnal (Day 6)
+                            </h4>
+
+                            <textarea
+                                id="text_day6"
+                                placeholder="Tumpahkan di sini, bebas..."
+                            ></textarea>
+
+                            <br>
+
+                            <button onclick="saveRizkaReply('day6')">
+                                Kunci & Tempel Catatan
+                            </button>
+
                         </div>
-                        <div id="replyBox_day6" class="saved-reply-box"></div>
+
+                        <div
+                            id="replyBox_day6"
+                            class="saved-reply-box"
+                        ></div>
+
                     </div>
                 </div>
             </div>
 
-             <!-- ==================== SLOT HARI KE-7 (CONTOH FORMAT FOTO) ==================== -->
+            <!-- ==================== SLOT HARI KE-7 ==================== -->
             <div id="day7" class="day-card">
-                <div class="day-title">📍 Day 7: Umbrella For My Life</div>
+
+                <div class="day-title">
+                    📍 Day 7: Umbrella For My Life
+                </div>
+
                 <div class="day-content-wrapper">
-                    <!-- Media Kiri: Foto Utama -->
+
                     <div class="day-media">
-                        <img src="foto7.jpg" alt="Memory Day 7">
+                        <img
+                            src="foto7.jpg"
+                            alt="Memory Day 7"
+                        >
                     </div>
-                    <!-- Info Kanan: Teks & Balasan (Password Diatur di Script Bawah: ) -->
+
                     <div class="day-info">
+
                         <div class="day-text">
-                            "Sayanggg... Selamat pagi/malam buat wanitaku... Hari ini masuk ke Day 7 perjalanan misi aku buat kamu. Hari ini kita resmi mulai menyusun huruf dari nama tengah kamu, AULIA, dan hari ini bagian huruf U...<br><br>
-                            Kemarin kita udah sama-sama ngelewatin rangkaian nama depan kamu, RIZKA. Mulai dari Day 1 (Relaxation and Spa) buat manjain kamu, Day 2 (In The Dark You Bright) yang ngingetin aku kalau kamu selalu jadi cahaya di hidup aku, Day 3 (Zat Pelebur) ego kita, Day 4 (Kasur Nyaman) tempat kamu istirahat walau aku salah merk, Day 5 (Arloji) pengingat waktu baru kita, sampai kemarin Day 6 (Apparel for Sleep) baju tidur lucu yang nemenin malam kamu. Aku bahagia banget bisa nyelesaiin rangkaian itu buat kamu, sayang...<br><br>
-                            Nah, untuk hari ini di Day 7, aku kasih kamu Umbrella, payung saku kecil yang simpel dan lucu ini buat kamu bawa-bawa di dalam tas kamu. Aku beliin ini karena belakangan ini cuaca lagi gak menentu banget, kadang panas banget, kadang tiba-tiba hujan. Aku gak mau kamu kecapekan atau sampai jatuh sakit karena kehujanan atau kepanasan di jalan.<br><br>
-                            Sayang... payung ini aku kasih sebagai simbol kalau aku pengen selalu ada buat jagain dan melindungi kamu, meskipun sekarang jarak kita belum bisa bikin aku selalu ada di samping kamu setiap saat fisik kamu butuh. Aku tahu kamu itu wanita yang mandiri banget, wanita tangguh yang kalau ke mana-mana terbiasa sendiri dan bisa jaga diri sendiri. Tapi sayang, plis jangan merasa kamu harus selalu menghadapi semuanya sendirian ya...<br><br>
-                            Kalau cuaca di luar lagi buruk, atau kalau "badai" di hidup kamu lagi dateng, tolong libatkan aku ya sayang. Jangan dipendam sendiri, jangan dihadapi sendiri. Kenapa harus sendiri kalau sekarang udah ada aku di sini? Bagi capeknya sama aku, bagi bebannya sama aku. Aku mau jadi payung yang siap ngelindungin kamu kapan pun kamu butuh tempat bersandar.<br><br>
-                            Aku sayangggg banget sama kamu, sayang. Perjalanan misi aku buat bahagiain kamu masih panjang banget ke depan, dan aku gak akan pernah bosen. Kalau kamu billing aku harus berubah demi kebaikan kita, demi Tuhan aku siap sayang. Aku siap berubah dan terus belajar jadi laki-laki yang lebih baik dan lebih peka lagi buat masa depan kita berdua. Tuntun aku terus ya, my future wife...<br><br>
-                            Diterima ya sayang kado untuk hari ini... Jangan lupa selalu ditaruh di dalam tas kamu yaaa, biar kalau hujan kamu gak kebingungan lagi.<br><br>
-                            I love you so much, my girl... Jaga kesehatan kamu ya wanitaku, duniaku... Aamiin..."
+                            "Sayanggg... Selamat pagi/malam buat wanitaku...
+                            Hari ini masuk ke Day 7 perjalanan misi aku buat kamu.
+                            Hari ini kita resmi mulai menyusun huruf dari nama
+                            tengah kamu, AULIA, dan hari ini bagian huruf U...<br><br>
+
+                            Kemarin kita udah sama-sama ngelewatin rangkaian nama
+                            depan kamu, RIZKA. Mulai dari Day 1 (Relaxation and Spa)
+                            buat manjain kamu, Day 2 (In The Dark You Bright) yang
+                            ngingetin aku kalau kamu selalu jadi cahaya di hidup aku,
+                            Day 3 (Zat Pelebur) ego kita, Day 4 (Kasur Nyaman)
+                            tempat kamu istirahat walau aku salah merk,
+                            Day 5 (Arloji) pengingat waktu baru kita, sampai
+                            kemarin Day 6 (Apparel for Sleep) baju tidur lucu
+                            yang nemenin malam kamu. Aku bahagia banget bisa
+                            nyelesaiin rangkaian itu buat kamu, sayang...<br><br>
+
+                            Nah, untuk hari ini di Day 7, aku kasih kamu Umbrella,
+                            payung saku kecil yang simpel dan lucu ini buat kamu
+                            bawa-bawa di dalam tas kamu. Aku beliin ini karena
+                            belakangan ini cuaca lagi gak menentu banget,
+                            kadang panas banget, kadang tiba-tiba hujan.
+                            Aku gak mau kamu kecapekan atau sampai jatuh sakit
+                            karena kehujanan atau kepanasan di jalan.<br><br>
+
+                            Sayang... payung ini aku kasih sebagai simbol kalau
+                            aku pengen selalu ada buat jagain dan melindungi kamu,
+                            meskipun sekarang jarak kita belum bisa bikin aku
+                            selalu ada di samping kamu setiap saat fisik kamu butuh.
+                            Aku tahu kamu itu wanita yang mandiri banget,
+                            wanita tangguh yang kalau ke mana-mana terbiasa sendiri
+                            dan bisa jaga diri sendiri. Tapi sayang, plis jangan
+                            merasa kamu harus selalu menghadapi semuanya sendirian ya...<br><br>
+
+                            Kalau cuaca di luar lagi buruk, atau kalau "badai"
+                            di hidup kamu lagi dateng, tolong libatkan aku ya sayang.
+                            Jangan dipendam sendiri, jangan dihadapi sendiri.
+                            Kenapa harus sendiri kalau sekarang udah ada aku di sini?
+                            Bagi capeknya sama aku, bagi bebannya sama aku.
+                            Aku mau jadi payung yang siap ngelindungin kamu
+                            kapan pun kamu butuh tempat bersandar.<br><br>
+
+                            Aku sayangggg banget sama kamu, sayang.
+                            Perjalanan misi aku buat bahagiain kamu masih panjang
+                            banget ke depan, dan aku gak akan pernah bosen.
+                            Kalau kamu billing aku harus berubah demi kebaikan kita,
+                            demi Tuhan aku siap sayang. Aku siap berubah dan terus
+                            belajar jadi laki-laki yang lebih baik dan lebih peka
+                            lagi buat masa depan kita berdua. Tuntun aku terus ya,
+                            my future wife...<br><br>
+
+                            Diterima ya sayang kado untuk hari ini...
+                            Jangan lupa selalu ditaruh di dalam tas kamu yaaa,
+                            biar kalau hujan kamu gak kebingungan lagi.<br><br>
+
+                            I love you so much, my girl...
+                            Jaga kesehatan kamu ya wanitaku, duniaku... Aamiin..."
                         </div>
+
                         <div class="clue-box">
-                            <b style="color: var(--pink-fanta);">📸 Behind the Picture:</b> "Yeeeayyy... Besok Kita Ke SerDam... Inget Gak Kita Pernah Sahurrr Bareng - Bareng... UuuUUUuuuu... Sesi Gambaran Kita Dimasa Nanti Mungkin Yaaaa...."
+                            <b style="color: var(--pink-fanta);">
+                                📸 Behind the Picture:
+                            </b>
+                            "Yeeeayyy... Besok Kita Ke SerDam...
+                            Inget Gak Kita Pernah Sahurrr Bareng - Bareng...
+                            UuuUUUuuuu... Sesi Gambaran Kita Dimasa Nanti Mungkin Yaaaa...."
                         </div>
-                        <div id="inputSec_day7" class="rizka-input-section">
-                            <h4>📝 Lembar Balasan Jurnal (Day 7)</h4>
-                            <textarea id="text_day7" placeholder="Tumpahkan di sini, bebas..."></textarea><br>
-                            <button onclick="saveRizkaReply('day7')">Kunci & Tempel Catatan</button>
+
+                        <div
+                            id="inputSec_day7"
+                            class="rizka-input-section"
+                        >
+
+                            <h4>
+                                📝 Lembar Balasan Jurnal (Day 7)
+                            </h4>
+
+                            <textarea
+                                id="text_day7"
+                                placeholder="Tumpahkan di sini, bebas..."
+                            ></textarea>
+
+                            <br>
+
+                            <button onclick="saveRizkaReply('day7')">
+                                Kunci & Tempel Catatan
+                            </button>
+
                         </div>
-                        <div id="replyBox_day7" class="saved-reply-box"></div>
+
+                        <div
+                            id="replyBox_day7"
+                            class="saved-reply-box"
+                        ></div>
+
                     </div>
                 </div>
             </div>
-       
-                 <!-- ==================== SLOT HARI KE-8 (CONTOH FORMAT FOTO) ==================== -->
+
+            <!-- ==================== SLOT HARI KE-8 ==================== -->
             <div id="day8" class="day-card">
-                <div class="day-title">📍 Day 8: Lukisan Dalam Bingkai</div>
+
+                <div class="day-title">
+                    📍 Day 8: Lukisan Dalam Bingkai
+                </div>
+
                 <div class="day-content-wrapper">
-                    <!-- Media Kiri: Foto Utama -->
+
                     <div class="day-media">
-                        <img src="foto8.jpg" alt="Memory Day 8">
+                        <img
+                            src="foto8.jpg"
+                            alt="Memory Day 8"
+                        >
                     </div>
-                    <!-- Info Kanan: Teks & Balasan (Password Diatur di Script Bawah: ) -->
+
                     <div class="day-info">
+
                         <div class="day-text">
-                            "Sayangggg...<br><br> 
-                            Tidak Ada Kata Kata Untuk Hari Ini... Aku Bebaskan Ekspresikan Diri Kamu..🥰<br><br>
+                            "Sayangggg...<br><br>
+
+                            Tidak Ada Kata Kata Untuk Hari Ini...
+                            Aku Bebaskan Ekspresikan Diri Kamu..🥰<br><br>
+
                             1. Apapun Yang Kamu Ingin, Aku Lakukan!<br><br>
+
                             2. Apapun Yang Ingin Kamu Lakukan, Aku Laksanakan!<br><br>
-                            Aku Tidak Akan Lawan,Tidak Akan Bantah, Tidak Akan Bilang Tidak. Hari Ini Aku Milik Kamu Penuh, Utuh dan Penurut.🥰🥰🥰"
+
+                            Aku Tidak Akan Lawan,Tidak Akan Bantah,
+                            Tidak Akan Bilang Tidak.
+                            Hari Ini Aku Milik Kamu Penuh,
+                            Utuh dan Penurut.🥰🥰🥰"
+                        </div>
+
                         <div class="clue-box">
-                            <b style="color: var(--pink-fanta);">📸 Behind the Picture:</b> "Foto Ini.... Foto Terindah Yang Pernah Kita Lakukan Dalam Sesi Foto..."
+                            <b style="color: var(--pink-fanta);">
+                                📸 Behind the Picture:
+                            </b>
+                            "Foto Ini.... Foto Terindah Yang Pernah Kita
+                            Lakukan Dalam Sesi Foto..."
                         </div>
-                        <div id="inputSec_day8" class="rizka-input-section">
-                            <h4>📝 Lembar Balasan Jurnal (Day 8)</h4>
-                            <textarea id="text_day8" placeholder="Tumpahkan di sini, bebas..."></textarea><br>
-                            <button onclick="saveRizkaReply('day8')">Kunci & Tempel Catatan</button>
+
+                        <div
+                            id="inputSec_day8"
+                            class="rizka-input-section"
+                        >
+
+                            <h4>
+                                📝 Lembar Balasan Jurnal (Day 8)
+                            </h4>
+
+                            <textarea
+                                id="text_day8"
+                                placeholder="Tumpahkan di sini, bebas..."
+                            ></textarea>
+
+                            <br>
+
+                            <button onclick="saveRizkaReply('day8')">
+                                Kunci & Tempel Catatan
+                            </button>
+
                         </div>
-                        <div id="replyBox_day8" class="saved-reply-box"></div>
+
+                        <div
+                            id="replyBox_day8"
+                            class="saved-reply-box"
+                        ></div>
+
                     </div>
                 </div>
             </div>
-       
-                     <!-- ==================== SLOT HARI KE-9 (CONTOH FORMAT FOTO) ==================== -->
+            <!-- ==================== SLOT HARI KE-9 ==================== -->
             <div id="day9" class="day-card">
-                <div class="day-title">📍 Day 9: Intimate New </div>
+
+                <div class="day-title">
+                    📍 Day 9: Intimate New
+                </div>
+
                 <div class="day-content-wrapper">
-                    <!-- Media Kiri: Foto Utama -->
+
                     <div class="day-media">
-                        <img src="foto9.jpg" alt="Memory Day 9">
+                        <img
+                            src="foto9.jpg"
+                            alt="Memory Day 9"
+                        >
                     </div>
-                    <!-- Info Kanan: Teks & Balasan (Password Diatur di Script Bawah: ) -->
+
                     <div class="day-info">
+
                         <div class="day-text">
-                            "Babyyyyy.... Jika Suatu Hari Nanti...<br><br> Dunia ini sering kali berjalan terlalu cepat dan terasa melelahkan, tetapi kehadiranmu selalu menjadi satu-satunya tempat di mana aku bisa menemukan ketenangan. Kamu adalah alasan mengapa aku tetap berdiri tegak di tengah semua ketidakpastian yang ada di luar sana. Bersamamu, aku tidak hanya merasa dicintai, tetapi juga merasa memiliki kekuatan penuh untuk menghadapi apa pun yang menghadang di depan kita.<br><br>
-                            Aku mengagumi cara kita memandang dunia ini bersama-sama—memahami bahwa hidup tidak selalu ramah, namun memilih untuk tetap berjalan beriringan. Saat kamu merasa lelah atau ingin menyerah, ingatlah bahwa genggaman tanganku tidak akan pernah lepas untuk menguatkanmu. Kita tidak perlu menaklukkan seluruh isi bumi, cukup pastikan bahwa dalam setiap langkah kecil yang kita ambil, kita selalu saling memiliki satu sama lain.<br><br>
-                            Terima kasih telah menjadi bagian paling indah sekaligus paling nyata dalam hidupku, Sayang. Mari kita terus melangkah tanpa perlu takut pada apa pun yang ada di depan, karena selama kita bersama, dunia ini akan selalu terasa cukup untuk kita berdua. Kamu adalah rumah, tujuan, dan masa depan yang selalu ingin aku perjuangkan setiap hari."                             
+                            "Babyyyyy.... Jika Suatu Hari Nanti...<br><br>
+
+                            Dunia ini sering kali berjalan terlalu cepat dan
+                            terasa melelahkan, tetapi kehadiranmu selalu menjadi
+                            satu-satunya tempat di mana aku bisa menemukan
+                            ketenangan. Kamu adalah alasan mengapa aku tetap
+                            berdiri tegak di tengah semua ketidakpastian yang
+                            ada di luar sana. Bersamamu, aku tidak hanya merasa
+                            dicintai, tetapi juga merasa memiliki kekuatan penuh
+                            untuk menghadapi apa pun yang menghadang di depan kita.<br><br>
+
+                            Aku mengagumi cara kita memandang dunia ini
+                            bersama-sama—memahami bahwa hidup tidak selalu ramah,
+                            namun memilih untuk tetap berjalan beriringan.
+                            Saat kamu merasa lelah atau ingin menyerah,
+                            ingatlah bahwa genggaman tanganku tidak akan pernah
+                            lepas untuk menguatkanmu. Kita tidak perlu menaklukkan
+                            seluruh isi bumi, cukup pastikan bahwa dalam setiap
+                            langkah kecil yang kita ambil, kita selalu saling
+                            memiliki satu sama lain.<br><br>
+
+                            Terima kasih telah menjadi bagian paling indah
+                            sekaligus paling nyata dalam hidupku, Sayang.
+                            Mari kita terus melangkah tanpa perlu takut pada
+                            apa pun yang ada di depan, karena selama kita bersama,
+                            dunia ini akan selalu terasa cukup untuk kita berdua.
+                            Kamu adalah rumah, tujuan, dan masa depan yang selalu
+                            ingin aku perjuangkan setiap hari."
                         </div>
+
                         <div class="clue-box">
-                            <b style="color: var(--pink-fanta);">📸 Behind the Picture:</b> "Tempat Dimana Dunia Kita Lepasss Sekali... Dunia Tanpa Batasan Yang Abadi Kenangannya..."
+                            <b style="color: var(--pink-fanta);">
+                                📸 Behind the Picture:
+                            </b>
+                            "Tempat Dimana Dunia Kita Lepasss Sekali...
+                            Dunia Tanpa Batasan Yang Abadi Kenangannya..."
                         </div>
-                        <div id="inputSec_day9" class="rizka-input-section">
-                            <h4>📝 Lembar Balasan Jurnal (Day 9)</h4>
-                            <textarea id="text_day9" placeholder="Tumpahkan di sini, bebas..."></textarea><br>
-                            <button onclick="saveRizkaReply('day9')">Kunci & Tempel Catatan</button>
+
+                        <div
+                            id="inputSec_day9"
+                            class="rizka-input-section"
+                        >
+
+                            <h4>
+                                📝 Lembar Balasan Jurnal (Day 9)
+                            </h4>
+
+                            <textarea
+                                id="text_day9"
+                                placeholder="Tumpahkan di sini, bebas..."
+                            ></textarea>
+
+                            <br>
+
+                            <button onclick="saveRizkaReply('day9')">
+                                Kunci & Tempel Catatan
+                            </button>
+
                         </div>
-                        <div id="replyBox_day9" class="saved-reply-box"></div>
+
+                        <div
+                            id="replyBox_day9"
+                            class="saved-reply-box"
+                        ></div>
+
                     </div>
                 </div>
             </div>
 
-                     <!-- ==================== SLOT HARI KE-10 (CONTOH FORMAT FOTO) ==================== -->
+            <!-- ==================== SLOT HARI KE-10 ==================== -->
             <div id="day10" class="day-card">
-                <div class="day-title">📍 Day 10: Aku Ada Karena Kamu Ada</div>
+
+                <div class="day-title">
+                    📍 Day 10: Aku Ada Karena Kamu Ada
+                </div>
+
                 <div class="day-content-wrapper">
-                    <!-- Media Kiri: Foto Utama -->
+
                     <div class="day-media">
-                        <img src="foto10.jpg" alt="Memory Day 10">
+                        <img
+                            src="foto10.jpg"
+                            alt="Memory Day 10"
+                        >
                     </div>
-                    <!-- Info Kanan: Teks & Balasan (Password Diatur di Script Bawah: ) -->
+
                     <div class="day-info">
+
                         <div class="day-text">
-                            "Bagi dunia, kamu mungkin adalah satu dari sekian miliar manusia. Namun bagiku, kamu adalah satu-satunya alasan mengapa detak jantung ini memiliki arah dan tujuan. Menatapmu selalu membuatku sadar bahwa kesempurnaan ternyata memiliki wujud yang nyata. Kamu cantik—bukan hanya dari bagaimana mataku memandangmu, tetapi dari bagaimana caramu membuat duniaku yang semula biasa saja menjadi begitu luar biasa.<br><br>
-                            Logikaku runtuh setiap kali berada di dekatmu, dan dengan senang hati aku menyerah pada perasaan ini. Bagiku, tidak ada kamus menyerah untuk membuatmu tersenyum. Aku akan mempelajari setiap detail kecil tentang apa yang membuat matamu berbinar, menghafal jenis tawa yang paling tulus darimu, dan menyimpan sejuta cara di kepalaku hanya untuk memastikan bahwa sedihmu tidak akan pernah bertahan lama.<br><br>
-                            Aku ada di sini, tumbuh menjadi versi terbaik dari diriku, itu semua karena kamu ada sebagai kompasnya. Jika membahagiakanmu adalah sebuah seni, maka aku ingin menjadi seniman paling tekun sepanjang hidupku. Karena di setiap embusan napasmu, di situlah seluruh hidupku berlabuh."
+                            "Bagi dunia, kamu mungkin adalah satu dari sekian
+                            miliar manusia. Namun bagiku, kamu adalah satu-satunya
+                            alasan mengapa detak jantung ini memiliki arah dan
+                            tujuan. Menatapmu selalu membuatku sadar bahwa
+                            kesempurnaan ternyata memiliki wujud yang nyata.
+                            Kamu cantik—bukan hanya dari bagaimana mataku
+                            memandangmu, tetapi dari bagaimana caramu membuat
+                            duniaku yang semula biasa saja menjadi begitu luar biasa.<br><br>
+
+                            Logikaku runtuh setiap kali berada di dekatmu,
+                            dan dengan senang hati aku menyerah pada perasaan ini.
+                            Bagiku, tidak ada kamus menyerah untuk membuatmu
+                            tersenyum. Aku akan mempelajari setiap detail kecil
+                            tentang apa yang membuat matamu berbinar, menghafal
+                            jenis tawa yang paling tulus darimu, dan menyimpan
+                            sejuta cara di kepalaku hanya untuk memastikan
+                            bahwa sedihmu tidak akan pernah bertahan lama.<br><br>
+
+                            Aku ada di sini, tumbuh menjadi versi terbaik dari
+                            diriku, itu semua karena kamu ada sebagai kompasnya.
+                            Jika membahagiakanmu adalah sebuah seni, maka aku
+                            ingin menjadi seniman paling tekun sepanjang hidupku.
+                            Karena di setiap embusan napasmu, di situlah seluruh
+                            hidupku berlabuh."
                         </div>
+
                         <div class="clue-box">
-                            <b style="color: var(--pink-fanta);">📸 Behind the Picture:</b> "FOTO TERBAIK KITA SAMPAI SAAT INI..."
+                            <b style="color: var(--pink-fanta);">
+                                📸 Behind the Picture:
+                            </b>
+                            "FOTO TERBAIK KITA SAMPAI SAAT INI..."
                         </div>
-                        <div id="inputSec_day10" class="rizka-input-section">
-                            <h4>📝 Lembar Balasan Jurnal (Day 10)</h4>
-                            <textarea id="text_day10" placeholder="Tumpahkan di sini, bebas..."></textarea><br>
-                            <button onclick="saveRizkaReply('day10')">Kunci & Tempel Catatan</button>
+
+                        <div
+                            id="inputSec_day10"
+                            class="rizka-input-section"
+                        >
+
+                            <h4>
+                                📝 Lembar Balasan Jurnal (Day 10)
+                            </h4>
+
+                            <textarea
+                                id="text_day10"
+                                placeholder="Tumpahkan di sini, bebas..."
+                            ></textarea>
+
+                            <br>
+
+                            <button onclick="saveRizkaReply('day10')">
+                                Kunci & Tempel Catatan
+                            </button>
+
                         </div>
-                        <div id="replyBox_day10" class="saved-reply-box"></div>
+
+                        <div
+                            id="replyBox_day10"
+                            class="saved-reply-box"
+                        ></div>
+
                     </div>
                 </div>
             </div>
 
-<!-- ==================== SLOT HARI KE-12 (CONTOH FORMAT FOTO) ==================== --> 
-<div id="day12" class="day-card"> 
-    <div class="day-title">📍 Day 12: A's Journal</div> 
-    <div class="day-content-wrapper"> 
-        <!-- Media Kiri: Foto Utama --> 
-        <div class="day-media"> 
-            <img src="foto12.jpg" alt="Memory Day 12"> 
-        </div> 
-        <!-- Info Kanan: Teks & Balasan --> 
-        <div class="day-info"> 
-            <div class="day-text"> 
-                Selamat datang di "A's Journal"—sebuah ruang eksklusif di mana kamulah satu-satunya fokus dan cerita utamanya. Jurnal ini sengaja dibuat untuk mendokumentasikan betapa berartinya kehadiranmu. Bagiku, kamu bukan sekadar cerita yang lewat, melainkan sebuah esai panjang tentang kenyamanan dan masa depan yang ingin aku tuju dengan penuh kesungguhan.<br><br> 
-                Melihat caramu berpikir, tersenyum, dan menghadapi hari membuatku sadar bahwa keindahan sejati terletak pada ketenangan yang kamu bawa. Jurnal ini adalah caraku mengatakan bahwa setiap pencapaianmu layak dirayakan, dan setiap sedihmu layak diringankan. Aku berkomitmen untuk terus menjadi pembaca setiamu, mendukung setiap ambisimu, dan memastikan bahwa bab-bab selanjutnya dalam hidupmu akan selalu dipenuhi dengan rasa aman dan bahagia. 
-            </div> 
-            <div class="clue-box"> 
-                <b style="color: var(--pink-fanta);">📸 Behind the Picture:</b> "Lucu banget sih yanggg... Keinget Kata Ayang... Beauty and The Beast..." 
-            </div> 
-            <div id="inputSec_day12" class="rizka-input-section"> 
-                <h4>📝 Lembar Balasan Jurnal (Day 12)</h4> 
-                <textarea id="text_day12" placeholder="Tumpahkan di sini, bebas..."></textarea><br> 
-                <button onclick="saveRizkaReply('day12')">Kunci & Tempel Catatan</button> 
-            </div> 
-            <div id="replyBox_day12" class="saved-reply-box"></div> 
-        </div> 
-    </div> 
-</div> 
+            <!-- ==================== SLOT HARI KE-11 ==================== -->
+            <div id="day11" class="day-card">
 
-            <!-- ==================== SLOT HARI KE-13 (CONTOH FORMAT FOTO) ==================== -->
+                <div class="day-title">
+                    📍 Day 11: Zilion Overflow
+                </div>
+
+                <div class="day-content-wrapper">
+
+                    <div
+                        class="day-info"
+                        style="flex: 1;"
+                    >
+
+                        <div class="day-text">
+                            Semoga setiap kali kamu pakai mug ini, kamu ingat kalau ada satu orang yang selalu senang punya kamu di hidupnya. Fotonya mungkin cuma gambar kita, tapi buat aku, momen-momen bareng kamu jauh lebih berharga dari sekadar foto.
+                        </div>
+
+                        <div class="clue-box">
+                            <b style="color: var(--pink-fanta);">
+                                📝 Catatan:
+                            </b>
+                            Foto Dimana Tempat Unik Itu Memberikan Sebuah Cerita, Seperti Manusia Freedom.
+                        </div>
+
+                        <div
+                            id="inputSec_day11"
+                            class="rizka-input-section"
+                        >
+
+                            <h4>
+                                📝 Lembar Balasan Jurnal (Day 11)
+                            </h4>
+
+                            <textarea
+                                id="text_day11"
+                                placeholder="Tumpahkan di sini, bebas..."
+                            ></textarea>
+
+                            <br>
+
+                            <button onclick="saveRizkaReply('day11')">
+                                Kunci & Tempel Catatan
+                            </button>
+
+                        </div>
+
+                        <div
+                            id="replyBox_day11"
+                            class="saved-reply-box"
+                        ></div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== SLOT HARI KE-12 ==================== -->
+            <div id="day12" class="day-card">
+
+                <div class="day-title">
+                    📍 Day 12: A's Journal
+                </div>
+
+                <div class="day-content-wrapper">
+
+                    <div class="day-media">
+                        <img
+                            src="foto12.jpg"
+                            alt="Memory Day 12"
+                        >
+                    </div>
+
+                    <div class="day-info">
+
+                        <div class="day-text">
+                            Selamat datang di "A's Journal"—sebuah ruang eksklusif
+                            di mana kamulah satu-satunya fokus dan cerita utamanya.
+                            Jurnal ini sengaja dibuat untuk mendokumentasikan
+                            betapa berartinya kehadiranmu. Bagiku, kamu bukan
+                            sekadar cerita yang lewat, melainkan sebuah esai panjang
+                            tentang kenyamanan dan masa depan yang ingin aku tuju
+                            dengan penuh kesungguhan.<br><br>
+
+                            Melihat caramu berpikir, tersenyum, dan menghadapi hari
+                            membuatku sadar bahwa keindahan sejati terletak pada
+                            ketenangan yang kamu bawa. Jurnal ini adalah caraku
+                            mengatakan bahwa setiap pencapaianmu layak dirayakan,
+                            dan setiap sedihmu layak diringankan. Aku berkomitmen
+                            untuk terus menjadi pembaca setiamu, mendukung setiap
+                            ambisimu, dan memastikan bahwa bab-bab selanjutnya
+                            dalam hidupmu akan selalu dipenuhi dengan rasa aman
+                            dan bahagia.
+                        </div>
+
+                        <div class="clue-box">
+                            <b style="color: var(--pink-fanta);">
+                                📸 Behind the Picture:
+                            </b>
+                            "Lucu banget sih yanggg...
+                            Keinget Kata Ayang...
+                            Beauty and The Beast..."
+                        </div>
+
+                        <div
+                            id="inputSec_day12"
+                            class="rizka-input-section"
+                        >
+
+                            <h4>
+                                📝 Lembar Balasan Jurnal (Day 12)
+                            </h4>
+
+                            <textarea
+                                id="text_day12"
+                                placeholder="Tumpahkan di sini, bebas..."
+                            ></textarea>
+
+                            <br>
+
+                            <button onclick="saveRizkaReply('day12')">
+                                Kunci & Tempel Catatan
+                            </button>
+
+                        </div>
+
+                        <div
+                            id="replyBox_day12"
+                            class="saved-reply-box"
+                        ></div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== SLOT HARI KE-13 ==================== -->
             <div id="day13" class="day-card">
-                <div class="day-title">📍 Day 13: ZIPLOCK AKU DIHIDUPMU</div>
+
+                <div class="day-title">
+                    📍 Day 13: ZIPLOCK AKU DIHIDUPMU
+                </div>
+
                 <div class="day-content-wrapper">
-                    <!-- Media Kiri: Foto Utama -->
+
                     <div class="day-media">
-                        <img src="foto13.jpg" alt="Memory Day 13">
+                        <img
+                            src="foto13.jpg"
+                            alt="Memory Day 13"
+                        >
                     </div>
-                    <!-- Info Kanan: Teks & Balasan (Password Diatur di Script Bawah: ) -->
+
                     <div class="day-info">
+
                         <div class="day-text">
-                            "Hari ini aku kasih kamu kado kecil ini, sebuah Ziplock Tentang Aku Untukmu... Hehe, aku buat ini khusus buat kamu sayang, karena aku cuman mau wujudin apa yang terbaik buat hubungan kita, sekecil apa pun itu.<br><br> 
-                Aku sengaja menyiapkan satu background dengan dua warna origami di dalam ziplock ini. Aku tahu kamu itu wanita yang mandiri banget, wanita tangguh yang terbiasa apa-apa bisa sendiri. Aku kagum banget sama hal itu dari kamu. Tapi sayang, tolong jangan pernah merasa kamu harus selalu sendirian ya...<br><br> 
-                Ziplock ini adalah cara aku biar bisa selalu meluk kamu setiap malam dan nemenin pikiran kamu, sekaligus menggantikan aku yang belum bisa selalu ada di samping kamu buat jagain kamu setiap saat. Mulai sekarang, kalau kamu lagi melihat aku menyebalkan, ambillah kertas origami merah, tulis kekesalanku di dalamnya, lalu masukkan ke ziplock itu. Sebaliknya, kalau kamu lagi merasa aku menyenangkan, tuliskan di origami biru.<br><br> 
-                Kenapa harus dipendam sendiri kalau sekarang udah ada aku? Aku mau kamu bisa istirahat dengan nyaman, tidur nyenyak tanpa beban pikiran, dan bangun dengan senyuman besok pagi. Jadi, kalau bisa, mulai sekarang libatkan aku ya sayang dalam hal apa pun itu... Berbagi capeknya sama aku, berbagi ceritanya sama aku. Aku mau jadi tempat bersandar kamu karena perjalanan kita di depan masih panjang banget sayang, aku mau kamu selalu punya energi buat jalan bareng aku.<br><br> 
-                Lewat kado hari ini juga, aku mau jujur dari lubuk hati aku yang paling dalam... Kalau kamu bilang aku harus berubah... demi Tuhan, aku siap sayang... Aku siap berubah demi kebahagiaan kita bersama... Aku sadar kemarin aku banyak egoisnya, banyak salahnya, tapi tolong jangan ragukan kalau aku sayangggg banget sama kamu... Rasa sayang aku ke kamu itu yang jadi alasan aku buat terus belajar jadi laki-laki yang lebih baik lagi... Aku ga mau kehilangan kamu, aku ga mau mimpi kita hancur cuma karena kebodohan aku... Misi aku buat bahagiain kamu masih panjang, dan aku gak akan berhenti di sini.<br><br> 
-                Mulai hari ini, detik ini, yuk kita buka lembaran baru... Melalui kertas-kertas di ziplock itu nanti, tuntun aku ya sayang... kalau aku salah dan menyebalkan, tegur aku lewat origami merahmu... kalau aku sudah benar, ingetin aku lewat origami birumu... Aku siap dengerin semua nasihat kamu karena aku tahu itu semua demi kebaikan kita, demi masa depan kita...<br><br> 
-                Terima ya sayang kado hari ini... Disimpan dan diisi yaaa, semoga ziplock ini bisa jadi jembatan biar kita makin saling paham... Semoga suka, dan semoga bisa nemenin tidur nyenyak kamu malam ini...<br><br> 
-                I Love you so much, my future wife... Bobo yang nyenyak ya wanitaku, kekasihku, duniaku... Aamiin...<br><br> 
-                Sewaktu - waktu... kita buka ya sayang... isi ziplock ini... jangan ada yang di buang yaaaa... biarkan aku belajar dari tiap kesalahan aku..."
+                            "Hari ini aku kasih kamu kado kecil ini,
+                            sebuah Ziplock Tentang Aku Untukmu...
+                            Hehe, aku buat ini khusus buat kamu sayang,
+                            karena aku cuman mau wujudin apa yang terbaik
+                            buat hubungan kita, sekecil apa pun itu.<br><br>
+
+                            Aku sengaja menyiapkan satu background dengan
+                            dua warna origami di dalam ziplock ini.
+                            Aku tahu kamu itu wanita yang mandiri banget,
+                            wanita tangguh yang terbiasa apa-apa bisa sendiri.
+                            Aku kagum banget sama hal itu dari kamu.
+                            Tapi sayang, tolong jangan pernah merasa kamu
+                            harus selalu sendirian ya...<br><br>
+
+                            Ziplock ini adalah cara aku biar bisa selalu
+                            meluk kamu setiap malam dan nemenin pikiran kamu,
+                            sekaligus menggantikan aku yang belum bisa selalu
+                            ada di samping kamu buat jagain kamu setiap saat.
+                            Mulai sekarang, kalau kamu lagi melihat aku
+                            menyebalkan, ambillah kertas origami merah,
+                            tulis kekesalanku di dalamnya, lalu masukkan
+                            ke ziplock itu. Sebaliknya, kalau kamu lagi merasa
+                            aku menyenangkan, tuliskan di origami biru.<br><br>
+
+                            Kenapa harus dipendam sendiri kalau sekarang
+                            udah ada aku? Aku mau kamu bisa istirahat dengan
+                            nyaman, tidur nyenyak tanpa beban pikiran,
+                            dan bangun dengan senyuman besok pagi.
+                            Jadi, kalau bisa, mulai sekarang libatkan aku
+                            ya sayang dalam hal apa pun itu...
+                            Berbagi capeknya sama aku, berbagi ceritanya sama aku.
+                            Aku mau jadi tempat bersandar kamu karena perjalanan
+                            kita di depan masih panjang banget sayang,
+                            aku mau kamu selalu punya energi buat jalan bareng aku.<br><br>
+
+                            Lewat kado hari ini juga, aku mau jujur dari lubuk
+                            hati aku yang paling dalam... Kalau kamu bilang
+                            aku harus berubah... demi Tuhan, aku siap sayang...
+                            Aku siap berubah demi kebahagiaan kita bersama...
+                            Aku sadar kemarin aku banyak egoisnya, banyak salahnya,
+                            tapi tolong jangan ragukan kalau aku sayangggg banget
+                            sama kamu... Rasa sayang aku ke kamu itu yang jadi
+                            alasan aku buat terus belajar jadi laki-laki yang
+                            lebih baik lagi... Aku ga mau kehilangan kamu,
+                            aku ga mau mimpi kita hancur cuma karena kebodohan aku...
+                            Misi aku buat bahagiain kamu masih panjang,
+                            dan aku gak akan berhenti di sini.<br><br>
+
+                            Mulai hari ini, detik ini, yuk kita buka lembaran baru...
+                            Melalui kertas-kertas di ziplock itu nanti,
+                            tuntun aku ya sayang... kalau aku salah dan menyebalkan,
+                            tegur aku lewat origami merahmu...
+                            kalau aku sudah benar, ingetin aku lewat origami birumu...
+                            Aku siap dengerin semua nasihat kamu karena aku tahu
+                            itu semua demi kebaikan kita, demi masa depan kita...<br><br>
+
+                            Terima ya sayang kado hari ini...
+                            Disimpan dan diisi yaaa, semoga ziplock ini bisa
+                            jadi jembatan biar kita makin saling paham...
+                            Semoga suka, dan semoga bisa nemenin tidur nyenyak
+                            kamu malam ini...<br><br>
+
+                            I Love you so much, my future wife...
+                            Bobo yang nyenyak ya wanitaku, kekasihku, duniaku...
+                            Aamiin...<br><br>
+
+                            Sewaktu - waktu... kita buka ya sayang...
+                            isi ziplock ini... jangan ada yang di buang yaaaa...
+                            biarkan aku belajar dari tiap kesalahan aku..."
                         </div>
+
                         <div class="clue-box">
-                            <b style="color: var(--pink-fanta);">📸 Behind the Picture:</b> "Ini Foto Kita Macam Dah Tak Ada Lagi Batasan Dalam Hidup Ketika Kita Bersama..."
+                            <b style="color: var(--pink-fanta);">
+                                📸 Behind the Picture:
+                            </b>
+                            "Ini Foto Kita Macam Dah Tak Ada Lagi Batasan
+                            Dalam Hidup Ketika Kita Bersama..."
                         </div>
-                        <div id="inputSec_day13" class="rizka-input-section">
-                            <h4>📝 Lembar Balasan Jurnal (Day 13)</h4>
-                            <textarea id="text_day13" placeholder="Tumpahkan di sini, bebas..."></textarea><br>
-                            <button onclick="saveRizkaReply('day13')">Kunci & Tempel Catatan</button>
+
+                        <div
+                            id="inputSec_day13"
+                            class="rizka-input-section"
+                        >
+
+                            <h4>
+                                📝 Lembar Balasan Jurnal (Day 13)
+                            </h4>
+
+                            <textarea
+                                id="text_day13"
+                                placeholder="Tumpahkan di sini, bebas..."
+                            ></textarea>
+
+                            <br>
+
+                            <button onclick="saveRizkaReply('day13')">
+                                Kunci & Tempel Catatan
+                            </button>
+
                         </div>
-                        <div id="replyBox_day13" class="saved-reply-box"></div>
+
+                        <div
+                            id="replyBox_day13"
+                            class="saved-reply-box"
+                        ></div>
+
                     </div>
                 </div>
             </div>
 
-                         <!-- ==================== SLOT HARI KE-14 (CONTOH FORMAT FOTO) ==================== -->
+            <!-- ==================== SLOT HARI KE-14 ==================== -->
             <div id="day14" class="day-card">
-                <div class="day-title">📍 Day 14: Kain Untuk Hari - H</div>
+
+                <div class="day-title">
+                    📍 Day 14: Kain Untuk Hari - H
+                </div>
+
                 <div class="day-content-wrapper">
-                    <!-- Media Kiri: Foto Utama -->
+
                     <div class="day-media">
-                        <img src="foto14.jpg" alt="Memory Day 14">
+                        <img
+                            src="foto14.jpg"
+                            alt="Memory Day 14"
+                        >
                     </div>
-                    <!-- Info Kanan: Teks & Balasan (Password Diatur di Script Bawah: ) -->
+
                     <div class="day-info">
+
                         <div class="day-text">
-                            "Sayanggg... Gunakan Kain ini saat malam 16 yaaa... Aku mau kamu terlihat Modis di detik pergantian usia Kamu...<br><br>
-                            Aku ingat ayang mau kain yang ini... jadi aku secepatnya cari cara... gak perlu tahu gimana caranya... pokoknya ayang harus pakai ketika aku minta pakai...<br><br>
-                            JANGAN DULU DIPAKAI KERJA BESOK... PAKAI SAAT AKU SURUH PAKAI..."
+                            "Sayanggg... Gunakan Kain ini saat malam 16 yaaa...
+                            Aku mau kamu terlihat Modis di detik pergantian
+                            usia Kamu...<br><br>
+
+                            Aku ingat ayang mau kain yang ini...
+                            jadi aku secepatnya cari cara...
+                            gak perlu tahu gimana caranya...
+                            pokoknya ayang harus pakai ketika aku minta pakai...<br><br>
+
+                            JANGAN DULU DIPAKAI KERJA BESOK...
+                            PAKAI SAAT AKU SURUH PAKAI..."
                         </div>
+
                         <div class="clue-box">
-                            <b style="color: var(--pink-fanta);">📸 Behind the Picture:</b> "Best Sih... Foto Ditempat Paling Terkenal... Dikota Yang Terkenal.. Dengan Orang Tersayang..."
+                            <b style="color: var(--pink-fanta);">
+                                📸 Behind the Picture:
+                            </b>
+                            "Best Sih... Foto Ditempat Paling Terkenal...
+                            Dikota Yang Terkenal.. Dengan Orang Tersayang..."
                         </div>
-                        <div id="inputSec_day14" class="rizka-input-section">
-                            <h4>📝 Lembar Balasan Jurnal (Day 14)</h4>
-                            <textarea id="text_day14" placeholder="Tumpahkan di sini, bebas..."></textarea><br>
-                            <button onclick="saveRizkaReply('day14')">Kunci & Tempel Catatan</button>
+
+                        <div
+                            id="inputSec_day14"
+                            class="rizka-input-section"
+                        >
+
+                            <h4>
+                                📝 Lembar Balasan Jurnal (Day 14)
+                            </h4>
+
+                            <textarea
+                                id="text_day14"
+                                placeholder="Tumpahkan di sini, bebas..."
+                            ></textarea>
+
+                            <br>
+
+                            <button onclick="saveRizkaReply('day14')">
+                                Kunci & Tempel Catatan
+                            </button>
+
                         </div>
-                        <div id="replyBox_day14" class="saved-reply-box"></div>
+
+                        <div
+                            id="replyBox_day14"
+                            class="saved-reply-box"
+                        ></div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- ==================== SLOT HARI KE-15 ==================== -->
+            <div id="day15" class="day-card">
+
+                <div class="day-title">
+                    📍 Day 15: Infusion Of Love
+                </div>
+
+                <div class="day-content-wrapper">
+
+                    <div class="day-media">
+                        <img
+                            src="foto15.jpg"
+                            alt="Memory Day 15"
+                        >
+                    </div>
+
+                    <div class="day-info">
+
+                        <div class="day-text">
+                            "Sayanggg... Gunakan Infusion Of Love ini saat malam
+                            16 yaaa... Aku mau kamu tercium wangi di detik
+                            pergantian usia Kamu...<br><br>
+
+                            Jujur.. Aku Excited Banget Nunggu Timing Ini...
+                            Anjirrr.. Udah Bentar Lagi Nih... Ehemmm...
+                            Sempet Ditanya Dulu Terkait Perjanjian Syarat
+                            Untuk Menikahi Kamu...<br><br>
+
+                            Gokillll... 15 Hari Sudah aku coba rangkai...
+                            banyak gagal ya sayang.. maaf yaaa...
+                            itu semua sesanggup aku... kadang buntu banget...
+                            ada beberapa part barangnya tuh gk dapet jadi harus
+                            di cari barang dan tema yang lain...<br><br>
+
+                            Tapiii... itu semua... semoga membuat kamu bahagia...
+                            ini aku kasih parfume... gak tahu aromanya...
+                            gak sempet cium aromanya...
+                            aku mau cium langsung di ayang aja langsunggggg....."
+                        </div>
+
+                        <div class="clue-box">
+                            <b style="color: var(--pink-fanta);">
+                                📸 Behind the Picture:
+                            </b>
+                            "Foto Pertama Kali Aku Injakan Kaki Ketempat
+                            Seperti Ini..."
+                        </div>
+
+                        <div
+                            id="inputSec_day15"
+                            class="rizka-input-section"
+                        >
+
+                            <h4>
+                                📝 Lembar Balasan Jurnal (Day 15)
+                            </h4>
+
+                            <textarea
+                                id="text_day15"
+                                placeholder="Tumpahkan di sini, bebas..."
+                            ></textarea>
+
+                            <br>
+
+                            <button onclick="saveRizkaReply('day15')">
+                                Kunci & Tempel Catatan
+                            </button>
+
+                        </div>
+
+                        <div
+                            id="replyBox_day15"
+                            class="saved-reply-box"
+                        ></div>
+
                     </div>
                 </div>
             </div>
 
-                         <!-- ==================== SLOT HARI KE-15 (CONTOH FORMAT FOTO) ==================== -->
-            <div id="day14" class="day-card">
-                <div class="day-title">📍 Day 15: Infusion Of Love</div>
-                <div class="day-content-wrapper">
-                    <!-- Media Kiri: Foto Utama -->
-                    <div class="day-media">
-                        <img src="foto15.jpg" alt="Memory Day 15">
-                    </div>
-                    <!-- Info Kanan: Teks & Balasan (Password Diatur di Script Bawah: ) -->
-                    <div class="day-info">
-                        <div class="day-text">
-                            "Sayanggg... Gunakan Infusion Of Love ini saat malam 16 yaaa... Aku mau kamu tercium wangi di detik pergantian usia Kamu...<br><br>
-                            Jujur.. Aku Excited Banget Nunggu Timing Ini... Anjirrr.. Udah Bentar Lagi Nih... Ehemmm... Sempet Ditanya Dulu Terkait Perjanjian Syarat Untuk Menikahi Kamu...<br><br>
-                            Gokillll... 15 Hari Sudah aku coba rangkai... banyak gagal ya sayang.. maaf yaaa... itu semua sesanggup aku... kadang buntu banget... ada beberapa part barangnya tuh gk dapet jadi harus di cari barang dan tema yang lain...<br><br>
-                            Tapiii... itu semua... semoga membuat kamu bahagia... ini aku kasih parfume... gak tahu aromanya... gak sempet cium aromanya... aku mau cium langsung di ayang aja langsunggggg....."
-                        </div>
-                        <div class="clue-box">
-                            <b style="color: var(--pink-fanta);">📸 Behind the Picture:</b> "Foto Pertama Kali Aku Injakan Kaki Ketempat Seperti Ini..."
-                        </div>
-                        <div id="inputSec_day15" class="rizka-input-section">
-                            <h4>📝 Lembar Balasan Jurnal (Day 15)</h4>
-                            <textarea id="text_day15" placeholder="Tumpahkan di sini, bebas..."></textarea><br>
-                            <button onclick="saveRizkaReply('day15')">Kunci & Tempel Catatan</button>
-                        </div>
-                        <div id="replyBox_day15" class="saved-reply-box"></div>
-                    </div>
-                </div>
-            </div>
-
-                         <!-- ==================== SLOT HARI KE-16 (CONTOH FORMAT FOTO) ==================== -->
+            <!-- ==================== SLOT HARI KE-16 ==================== -->
             <div id="day16" class="day-card">
-                <div class="day-title">📍 Day 16: AKU</div>
+
+                <div class="day-title">
+                    📍 Day 16: AKU
+                </div>
+
                 <div class="day-content-wrapper">
-                    <!-- Media Kiri: Foto Utama -->
+
                     <div class="day-media">
-                        <img src="foto16.jpg" alt="Memory Day 16">
+                        <img
+                            src="foto16.jpg"
+                            alt="Memory Day 16"
+                        >
                     </div>
-                    <!-- Info Kanan: Teks & Balasan (Password Diatur di Script Bawah: ) -->
+
                     <div class="day-info">
+
                         <div class="day-text">
-                            "SAYANGGG... DARI SEKIAN BANYAKNYA HADIAH YANG AKU BERI... KAMU PALING SUKA YANG MANA...?<br><br>
-                            KALAU HADIAH TERAKHIR INI SUKAAA GAKKK...? ADA KOK SESINYA NANTI KITA INTIMATE... TUNGGU AJAAA YAAA... POKOKNYA IKUT AKU KEMANAPUN AKU AJAK...<br><br>
-                            GAK USAH NGAMBEK - NGAMBEK LAGI... JELEK KALAU NGAMBEKKK... ENGGAK DENGGG.. BERCANDAAA... AYANG TETAPPP CANTIK APAPUN ITU...<br><br>
-                            MAAF YA SAYANG... AKU BIKIN KESELLL... NYEBELIN YAAA... GIMANA LAGI... AKU MAU LAKUIN TAPI TAKUT.. TAPI HARUS... TAPI TENANGGG.. AKU GAK GITU KOK... ITU BUKAN AKU BANGET...<br><br>
-                            sayang, genap sudah kamu 24 Tahun... Bahagia Selalu Sayang... Selalu Bersinar Apapun Itu Keadaannya... Aku Sanggup Banget Dengan 8 Syarat Dari Yang Kamu Ajukan Kemarin...<br><br>
-                            Ayo Kita Bareng - Bareng... Susun Semuanya Rencana Rencana Terbaik Untuk Hidup Kita... Enggak Ada Lagi Aku dan Kamu... Tapi Kali Ini Semua Tentang Kita...<br><br>
-                            Jangan sungkan ya sayang... apapun itu segala bentuk kekhawatiran dan lainnya... berbagi sama aku... kita rangkai semuanya... biar aku bertanggung jawab atas kebahagiaan kamu...<br><br>
-                            aku hadir untuk bahagiakan kamu... aku siap dengan segala risikonya... biar aku hadir dalam hidupmu menjadi pelengkap segala harapan kamu...<br><br>
-                            Biarkan Dunia Ini Kejam... Selama Kamu Dibelakang Aku... Kamu Selalu Dalam Lindungan Aku... Gak Perlu Khawatirkan Apapun... Tembus Semuanya Sayang... Pikiran Buruk Kamu Cuman Hanya Sebuah Pemikiran Belaka... Selebihnya Aku Percaya.. Kamu Wanita Hebat Yang Akan Aku Banggakan Didunia dan Disurga Nantinya...<br><br>
-                            Jadilah satu dan satu - satu nya kebahagiaan yang aku punya... karena langkah aku kini tertuju untuk bahagiakan kita... I LOVE You My Wine... Aku Sayanggggggggggg Bangettttt Sama Kamu... Rizka Aulia Zazkia..."
+                            "SAYANGGG... DARI SEKIAN BANYAKNYA HADIAH
+                            YANG AKU BERI... KAMU PALING SUKA YANG MANA...?<br><br>
+
+                            KALAU HADIAH TERAKHIR INI SUKAAA GAKKK...?
+                            ADA KOK SESINYA NANTI KITA INTIMATE...
+                            TUNGGU AJAAA YAAA... POKOKNYA IKUT AKU
+                            KEMANAPUN AKU AJAK...<br><br>
+
+                            GAK USAH NGAMBEK - NGAMBEK LAGI...
+                            JELEK KALAU NGAMBEKKK...
+                            ENGGAK DENGGG.. BERCANDAAA...
+                            AYANG TETAPPP CANTIK APAPUN ITU...<br><br>
+
+                            MAAF YA SAYANG... AKU BIKIN KESELLL...
+                            NYEBELIN YAAA... GIMANA LAGI...
+                            AKU MAU LAKUIN TAPI TAKUT.. TAPI HARUS...
+                            TAPI TENANGGG.. AKU GAK GITU KOK...
+                            ITU BUKAN AKU BANGET...<br><br>
+
+                            sayang, genap sudah kamu 24 Tahun...
+                            Bahagia Selalu Sayang...
+                            Selalu Bersinar Apapun Itu Keadaannya...
+                            Aku Sanggup Banget Dengan 8 Syarat Dari
+                            Yang Kamu Ajukan Kemarin...<br><br>
+
+                            Ayo Kita Bareng - Bareng...
+                            Susun Semuanya Rencana Rencana Terbaik
+                            Untuk Hidup Kita... Enggak Ada Lagi Aku dan Kamu...
+                            Tapi Kali Ini Semua Tentang Kita...<br><br>
+
+                            Jangan sungkan ya sayang...
+                            apapun itu segala bentuk kekhawatiran dan lainnya...
+                            berbagi sama aku... kita rangkai semuanya...
+                            biar aku bertanggung jawab atas kebahagiaan kamu...<br><br>
+
+                            aku hadir untuk bahagiakan kamu...
+                            aku siap dengan segala risikonya...
+                            biar aku hadir dalam hidupmu menjadi pelengkap
+                            segala harapan kamu...<br><br>
+
+                            Biarkan Dunia Ini Kejam...
+                            Selama Kamu Dibelakang Aku...
+                            Kamu Selalu Dalam Lindungan Aku...
+                            Gak Perlu Khawatirkan Apapun...
+                            Tembus Semuanya Sayang...
+                            Pikiran Buruk Kamu Cuman Hanya Sebuah Pemikiran Belaka...
+                            Selebihnya Aku Percaya..
+                            Kamu Wanita Hebat Yang Akan Aku Banggakan
+                            Didunia dan Disurga Nantinya...<br><br>
+
+                            Jadilah satu dan satu - satu nya kebahagiaan
+                            yang aku punya... karena langkah aku kini
+                            tertuju untuk bahagiakan kita...
+                            I LOVE You My Wine...
+                            Aku Sayanggggggggggg Bangettttt Sama Kamu...
+                            Rizka Aulia Zazkia..."
                         </div>
+
                         <div class="clue-box">
-                            <b style="color: var(--pink-fanta);">📸 Behind the Picture:</b> "Foto Pertama Kali Aku Injakan Kaki Ketempat Seperti Ini..."
+                            <b style="color: var(--pink-fanta);">
+                                📸 Behind the Picture:
+                            </b>
+                            "Foto Pertama Kali Aku Injakan Kaki Ketempat
+                            Seperti Ini..."
                         </div>
-                        <div id="inputSec_day16" class="rizka-input-section">
-                            <h4>📝 Lembar Balasan Jurnal (Day 16)</h4>
-                            <textarea id="text_day16" placeholder="Tumpahkan di sini, bebas..."></textarea><br>
-                            <button onclick="saveRizkaReply('day16')">Kunci & Tempel Catatan</button>
+
+                        <div
+                            id="inputSec_day16"
+                            class="rizka-input-section"
+                        >
+
+                            <h4>
+                                📝 Lembar Balasan Jurnal (Day 16)
+                            </h4>
+
+                            <textarea
+                                id="text_day16"
+                                placeholder="Tumpahkan di sini, bebas..."
+                            ></textarea>
+
+                            <br>
+
+                            <button onclick="saveRizkaReply('day16')">
+                                Kunci & Tempel Catatan
+                            </button>
+
                         </div>
-                        <div id="replyBox_day16" class="saved-reply-box"></div>
+
+                        <div
+                            id="replyBox_day16"
+                            class="saved-reply-box"
+                        ></div>
+
                     </div>
                 </div>
             </div>
-                
+
+            <!-- ==================== SLOT HARI KE-17 ==================== -->
+            <div id="day17" class="day-card">
+
+                <div class="day-title">
+                    📍 Day 17: Puncak Hari-H
+                </div>
+
+                <div class="day-content-wrapper">
+
+                    <div
+                        class="day-info"
+                        style="flex: 1;"
+                    >
+
+                        <div class="day-text">
+                            Konten Day 17 belum diisi pada file asli.
+                            Kode akses Day 17 tetap aktif dan halaman ini
+                            disediakan agar password terakhir tidak
+                            menghasilkan error.
+                        </div>
+
+                        <div class="clue-box">
+                            <b style="color: var(--pink-fanta);">
+                                🎉 Hari-H:
+                            </b>
+                            Silakan ganti bagian ini dengan konten utama Day 17.
+                        </div>
+
+                        <div
+                            id="inputSec_day17"
+                            class="rizka-input-section"
+                        >
+
+                            <h4>
+                                📝 Lembar Balasan Jurnal (Day 17)
+                            </h4>
+
+                            <textarea
+                                id="text_day17"
+                                placeholder="Tumpahkan di sini, bebas..."
+                            ></textarea>
+
+                            <br>
+
+                            <button onclick="saveRizkaReply('day17')">
+                                Kunci & Tempel Catatan
+                            </button>
+
+                        </div>
+
+                        <div
+                            id="replyBox_day17"
+                            class="saved-reply-box"
+                        ></div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <script>
-        // 1. MANAGER AUDIO AUTOPLAY LOKAL
-        const audio = document.getElementById('myAudio');
-        window.addEventListener('DOMContentLoaded', () => {
+
+        // ============================================================
+        // 1. MANAGER AUDIO AUTOPLAY
+        // ============================================================
+
+        const audio = document.getElementById("myAudio");
+
+        window.addEventListener("DOMContentLoaded", () => {
+
             audio.play().catch(() => {
-                document.addEventListener('click', () => { audio.play(); }, { once: true });
+
+                document.addEventListener(
+                    "click",
+                    () => {
+                        audio.play().catch(() => {});
+                    },
+                    { once: true }
+                );
+
             });
+
         });
 
-        // =========================================================================
-        // 🔑 PUSAT REGISTRASI KATA KUNCI/PASSWORD 17 HARI
-        // =========================================================================
-        // Jika Anda menambah Day 3, cukup tambahkan baris baru di bawah AULIA02:
-        // "KODEBARU03": "day3",
-        const passwordRegistry = {
-            "X7M2PK": "day1",     // Password Hari ke-1 (1 Agu)
-            "4V9BTL": "day2",     // Password Hari ke-2 (2 Agu)
-            "R5K8WN": "day3",     // Password Hari ke-3 (3 Agu)
-            "H2Q9FX": "day4",     // Password Hari ke-4 (4 Agu)
-            "RIZKA" : "day5",     // Password Hari ke-5 (5 Agu)
-            "B8M4WD": "day6",     // Password Hari ke-6 (6 Agu)
-            "T3K7NZ": "day7",     // Password Hari ke-7 (7 Agu)
-            "G9V2RX": "day8",     // Password Hari ke-8 (8 Agu)
-            "P4L6QC": "day9",     // Password Hari ke-9 (9 Agu)
-            "AULIA" : "day10",    // Password Hari ke-10 (10 Agu)
-            "W5M9BT": "day11",    // Password Hari ke-11 (11 Agu)
-            "N2Y6VD": "day12",    // Password Hari ke-12 (12 Agu)
-            "K8Q4FX": "day13",    // Password Hari ke-13 (13 Agu)
-            "C3P7RL": "day14",    // Password Hari ke-14 (14 Agu)
-            "H9M2WS": "day15",    // Password Hari ke-15 (15 Agu)
-            "ZAZKIA": "day16",    // Password Hari ke-16 (16 Agu)
-            "L3N7PX": "day17"     // Password Hari ke-17 (17 Agu - Puncak HARI-H
-        };
-        // =========================================================================
 
-        // 3. LOGIKA VERIFIKASI KODE MASUK BERANTAI
+        // ============================================================
+        // 2. PUSAT REGISTRASI PASSWORD 17 HARI
+        // ============================================================
+
+        const passwordRegistry = {
+
+            "X7M2PK": "day1",
+            "4V9BTL": "day2",
+            "R5K8WN": "day3",
+            "H2Q9FX": "day4",
+            "RIZKA":  "day5",
+            "B8M4WD": "day6",
+            "T3K7NZ": "day7",
+            "G9V2RX": "day8",
+            "P4L6QC": "day9",
+            "AULIA":  "day10",
+            "W5M9BT": "day11",
+            "N2Y6VD": "day12",
+            "K8Q4FX": "day13",
+            "C3P7RL": "day14",
+            "H9M2WS": "day15",
+            "ZAZKIA": "day16",
+            "170802": "day17"
+
+        };
+
+
+        // ============================================================
+        // 3. VERIFIKASI PASSWORD
+        // ============================================================
+
         function checkPassword() {
-            var input = document.getElementById("passInput").value.trim().toUpperCase();
-            var error = document.getElementById("errorMsg");
+
+            const inputElement =
+                document.getElementById("passInput");
+
+            const error =
+                document.getElementById("errorMsg");
+
+            const input =
+                inputElement.value
+                    .trim()
+                    .toUpperCase();
 
             if (passwordRegistry[input]) {
+
                 error.style.display = "none";
-                let targetDayId = passwordRegistry[input];
-                localStorage.setItem(targetDayId, "unlocked");
+
+                const targetDayId =
+                    passwordRegistry[input];
+
+                localStorage.setItem(
+                    targetDayId,
+                    "unlocked"
+                );
+
                 displayUnlockedDays();
+
                 setTimeout(() => {
-                    document.getElementById(targetDayId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                    const target =
+                        document.getElementById(targetDayId);
+
+                    if (target) {
+
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+
+                    }
+
                 }, 150);
-                document.getElementById("passInput").value = "";
+
+                inputElement.value = "";
+
             } else {
+
                 error.style.display = "block";
+
             }
+
         }
 
-        // 4. LOGIKA PENGUNCI DAN PENYIMPAN MEMORI TULISAN RIZKA
+
+        // Tekan ENTER pada input password
+        document
+            .getElementById("passInput")
+            .addEventListener(
+                "keydown",
+                (event) => {
+
+                    if (event.key === "Enter") {
+                        checkPassword();
+                    }
+
+                }
+            );
+
+
+        // ============================================================
+        // 4. SIMPAN BALASAN RIZKA
+        // ============================================================
+
         function saveRizkaReply(dayId) {
-            const textarea = document.getElementById('text_' + dayId);
-            const replyText = textarea.value.trim();
-            if (replyText === "") return;
 
-            localStorage.setItem('replyData_' + dayId, replyText);
+            const textarea =
+                document.getElementById(
+                    "text_" + dayId
+                );
+
+            if (!textarea) return;
+
+            const replyText =
+                textarea.value.trim();
+
+            if (replyText === "") {
+                return;
+            }
+
+            localStorage.setItem(
+                "replyData_" + dayId,
+                replyText
+            );
+
             renderSavedReplies();
+
         }
+
+
+        // ============================================================
+        // 5. AMANKAN TEKS USER DARI HTML INJECTION
+        // ============================================================
+
+        function escapeHtml(text) {
+
+            const div =
+                document.createElement("div");
+
+            div.textContent = text;
+
+            return div.innerHTML;
+
+        }
+
+
+        // ============================================================
+        // 6. RENDER BALASAN YANG SUDAH DISIMPAN
+        // ============================================================
 
         function renderSavedReplies() {
-            for (let code in passwordRegistry) {
-                let dayId = passwordRegistry[code];
-                let savedText = localStorage.getItem('replyData_' + dayId);
-                
-                let inputSection = document.getElementById('inputSec_' + dayId);
-                let replyBox = document.getElementById('replyBox_' + dayId);
+
+            for (const code in passwordRegistry) {
+
+                const dayId =
+                    passwordRegistry[code];
+
+                const savedText =
+                    localStorage.getItem(
+                        "replyData_" + dayId
+                    );
+
+                const inputSection =
+                    document.getElementById(
+                        "inputSec_" + dayId
+                    );
+
+                const replyBox =
+                    document.getElementById(
+                        "replyBox_" + dayId
+                    );
+
+                /*
+                 * Jika Day belum memiliki elemen HTML,
+                 * jangan hentikan JavaScript.
+                 */
+                if (!inputSection || !replyBox) {
+                    continue;
+                }
 
                 if (savedText) {
-                    if(inputSection) inputSection.style.display = "none";
-                    if(replyBox) {
-                        replyBox.style.display = "block";
-                        replyBox.innerHTML = `<b style="color:var(--royal-purple);">📌 Balasan & Uneg-uneg Rizka:</b><br>"${savedText}"`;
-                    }
+
+                    inputSection.style.display =
+                        "none";
+
+                    replyBox.style.display =
+                        "block";
+
+                    replyBox.innerHTML =
+                        '<b style="color:var(--royal-purple);">' +
+                        '📌 Balasan & Uneg-uneg Rizka:' +
+                        '</b><br>"' +
+                        escapeHtml(savedText)
+                            .replace(/\n/g, "<br>") +
+                        '"';
+
                 }
+
             }
+
         }
+
+
+        // ============================================================
+        // 7. TAMPILKAN DAY YANG SUDAH TERBUKA
+        // ============================================================
 
         function displayUnlockedDays() {
-            for (let code in passwordRegistry) {
-                let dayId = passwordRegistry[code];
-                if (localStorage.getItem(dayId) === "unlocked") {
-                    document.getElementById(dayId).style.display = "block";
+
+            for (const code in passwordRegistry) {
+
+                const dayId =
+                    passwordRegistry[code];
+
+                const dayElement =
+                    document.getElementById(dayId);
+
+                /*
+                 * Cek apakah elemen benar-benar ada.
+                 * Ini mencegah error:
+                 * Cannot read properties of null
+                 */
+                if (
+                    dayElement &&
+                    localStorage.getItem(dayId) === "unlocked"
+                ) {
+
+                    dayElement.style.display =
+                        "block";
+
                 }
+
             }
+
             renderSavedReplies();
+
         }
 
-        window.onload = function() { displayUnlockedDays(); };
 
-        // 5. ANIMASI HEBOH BUNGA SAKURA GUGUR & KILAU BINTANG BERKILAU
-        const flowerContainer = document.getElementById('flower-container');
-        const flowers = ['🌸', '✨', '💮', '💜', '✨', '🌸'];
+        // ============================================================
+        // 8. LOAD DATA SAAT HALAMAN DIBUKA
+        // ============================================================
+
+        window.onload = function() {
+
+            displayUnlockedDays();
+
+        };
+
+
+        // ============================================================
+        // 9. ANIMASI BUNGA / BINTANG
+        // ============================================================
+
+        const flowerContainer =
+            document.getElementById(
+                "flower-container"
+            );
+
+        const flowers = [
+            "🌸",
+            "✨",
+            "💮",
+            "💜",
+            "✨",
+            "🌸"
+        ];
+
+
         function createFlower() {
-            const flower = document.createElement('div');
-            flower.classList.add('falling-flower');
-            flower.innerText = flowers[Math.floor(Math.random() * flowers.length)];
-            flower.style.left = Math.random() * 100 + 'vw';
-            flower.style.animationDuration = Math.random() * 3 + 4 + 's';
-            flower.style.opacity = Math.random() * 0.8 + 0.2;
-            flower.style.fontSize = Math.random() * 10 + 12 + 'px';
-            flowerContainer.appendChild(flower);
-            setTimeout(() => { flower.remove(); }, 7000);
+
+            if (!flowerContainer) return;
+
+            const flower =
+                document.createElement("div");
+
+            flower.classList.add(
+                "falling-flower"
+            );
+
+            flower.innerText =
+                flowers[
+                    Math.floor(
+                        Math.random() *
+                        flowers.length
+                    )
+                ];
+
+            flower.style.left =
+                Math.random() * 100 + "vw";
+
+            flower.style.animationDuration =
+                Math.random() * 3 + 4 + "s";
+
+            flower.style.opacity =
+                Math.random() * 0.8 + 0.2;
+
+            flower.style.fontSize =
+                Math.random() * 10 + 12 + "px";
+
+            flowerContainer.appendChild(
+                flower
+            );
+
+            setTimeout(() => {
+
+                flower.remove();
+
+            }, 7000);
+
         }
-        setInterval(createFlower, 300);
+
+
+        setInterval(
+            createFlower,
+            300
+        );
+
     </script>
+
 </body>
 </html>
